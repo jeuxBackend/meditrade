@@ -7,26 +7,25 @@ import WebLogin from './Auth/WebAuth/WebLogin/WebLogin'
 import WebSignup from './Auth/WebAuth/WebSignup/WebSignup'
 import Home from './Website/Pages/Home/Home'
 import MyOrder from './Website/Pages/MyOrder/MyOrder'
+import WebChat from "./Website/Pages/WebChat/WebChat";
+import MyOrderProductDetails from "./Website/Pages/MyOrder/components/MyOrderProductDetails/MyOrderProductDetails";
 
 function App() {
-
   return (
     <>
       <Routes>
         <Route path="/" element={<Websplash />} />
         <Route path="/Login" element={<WebLogin />} />
         <Route path="/WebSignup" element={<WebSignup />} />
-
-
         <Route element={<Layout />}>
-
-          <Route path='/Home' element={<Home />} />
-          <Route path='/MyOrder' element={<MyOrder />} />
-
+          <Route path="/Home" element={<Home />} />
+          <Route path="/MyOrder" element={<MyOrder />} />
+            <Route path="/MyOrderProductDetails" element={<MyOrderProductDetails />} />
+          <Route path="/WebChat" element={<WebChat />} />
         </Route>
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
