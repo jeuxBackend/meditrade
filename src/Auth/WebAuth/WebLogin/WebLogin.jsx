@@ -28,14 +28,14 @@ function WebLogin() {
             EN
           </motion.button>
           <motion.button whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300, damping: 15 }}
-           className="text-white custom-border-button w-[90px] rounded-[8px] bg-black/10 bg-opacity-50 py-2.5 px-2">
+            className="text-white custom-border-button w-[90px] rounded-[8px] bg-black/10 bg-opacity-50 py-2.5 px-2">
             USD ($)
           </motion.button>
         </div>
 
 
 
-        <div className="absolute inset-0 flex flex-col md:flex-row justify-center items-center">
+        <div className="absolute inset-0 flex flex-col md:flex-row justify-center items-center overflow-y-auto">
           <div className="w-full md:w-auto my-auto px-4 z-10">
             <motion.div
               animate={{ y: [0, -15, 0] }}
