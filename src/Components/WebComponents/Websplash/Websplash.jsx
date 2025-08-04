@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import SplashImage from "./Assets/SplashImage.png";
 
@@ -14,9 +15,16 @@ const Websplash = () => {
   }, [navigate]);
 
   return (
-    <div className="flex justify-center items-center mx-5 h-screen bg-white">
+    <motion.div
+      animate={{ y: [0, -20, 0] }}
+      transition={{
+        duration: 2,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+      className="flex justify-center items-center mx-5 h-screen bg-white" >
       <img src={SplashImage} alt="Splash" className="w-100" />
-    </div>
+    </motion.div>
   );
 };
 
