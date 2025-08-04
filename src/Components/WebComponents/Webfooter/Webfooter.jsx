@@ -1,9 +1,9 @@
 import React from 'react'
 
-const webfooter = () => {
+const WebFooter = () => {
   return (
-    <div>webfooter</div>
+    <div>WebFooter</div>
   )
 }
 
-export default webfooter
+export default WebFooter
