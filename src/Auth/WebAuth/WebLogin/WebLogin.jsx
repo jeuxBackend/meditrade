@@ -35,7 +35,7 @@ function WebLogin() {
 
 
 
-        <div className="absolute inset-0 flex flex-col md:flex-row justify-center items-center overflow-y-auto">
+        <div className="absolute inset-0 flex flex-col md:flex-row justify-center items-center overflow-y-auto pt-10">
           <div className="w-full md:w-auto my-auto px-4 z-10">
             <motion.div
               animate={{ y: [0, -15, 0] }}
