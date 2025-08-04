@@ -6,8 +6,11 @@ import WebFooter from '../../Components/WebComponents/Webfooter/Webfooter'
 const Layout = () => {
     return (
         <div>
+            <div className='bg-[#EBF1FF]'>
 <WebNavbar/>
 <Outlet/>
+            </div>
+
 <WebFooter/>
         </div>
     )

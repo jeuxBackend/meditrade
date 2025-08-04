@@ -5,6 +5,8 @@ import Websplash from './Components/WebComponents/Websplash/Websplash'
 import Layout from './Website/WebsiteLayout/Layout'
 import WebLogin from './Auth/WebAuth/WebLogin/Login'
 import WebSignup from './Auth/WebAuth/WebSignup/WebSignup'
+import Home from './Website/Pages/Home/Home'
+import MyOrder from './Website/Pages/MyOrder/MyOrder'
 
 function App() {
 
@@ -18,6 +20,8 @@ function App() {
 
         <Route element={<Layout />}>
 
+          <Route path='/Home' element={<Home />} />
+          <Route path='/MyOrder' element={<MyOrder />} />
 
         </Route>
       </Routes>
