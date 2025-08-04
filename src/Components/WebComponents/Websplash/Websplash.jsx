@@ -7,7 +7,7 @@ const Websplash = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate('/WelcomePage');
+      navigate('/Login');
     }, 3000);
 
     return () => clearTimeout(timer);
