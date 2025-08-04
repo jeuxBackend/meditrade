@@ -6,6 +6,7 @@ import Login from './Auth/WebAuth/Login/Login'
 import Layout from './Website/WebsiteLayout/Layout'
 import Home from './Website/Pages/Home/Home'
 import MyOrder from './Website/Pages/MyOrder/MyOrder'
+import WebChat from './Website/Pages/WebChat/WebChat'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,6 +19,7 @@ function App() {
         <Route element={<Layout/>}>
 <Route path='/Home' element={<Home/>}/>
 <Route path='/MyOrder' element={<MyOrder/>}/>
+<Route path='/WebChat' element={<WebChat/>}/>
 
         </Route>
       </Routes>

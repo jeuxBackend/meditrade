@@ -1,51 +1,51 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { CiMenuFries } from "react-icons/ci";
+import { RxCross1 } from "react-icons/rx";
 import logo from "./Assets/logo.png";
 import profile from "./Assets/profileImg.png";
-import { RxCross1 } from "react-icons/rx";
 
 const WebNavbar = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate();
 
-  // Close modal if screen is smaller than LG
+  const isMinimalHeader =
+    location.pathname === "/Home" || location.pathname === "/MyOrder";
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 1024) {
         setIsMenuOpen(false);
       }
     };
-
     handleResize();
-
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const navItems = [
     { label: "Home", path: "/Home" },
     { label: "My Orders", path: "/MyOrder" },
-    { label: "Chat", path: "/TenantChat" },
+    { label: "Chat", path: "/WebChat" },
     { label: "Loyalty Program", path: "/LoyaltyProgram" },
   ];
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
-    <div className=" border-b-2 border-[#e5e5e5] py-4 w-full md:px-8 px-4">
+    <div
+      className={`border-b-2 border-[#e5e5e5] w-full md:px-8 px-4 relative ${
+        isMinimalHeader ? "py-9" : "py-4"
+      }`}
+    >
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex-shrink-0">
-          <img src={logo} alt="Logo" className="h-15" />
-        </Link>
+        {!isMinimalHeader && (
+          <Link to="/" className="flex-shrink-0">
+            <img src={logo} alt="Logo" className="h-14" />
+          </Link>
+        )}
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center justify-center space-x-6 lg:space-x-14">
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex items-center justify-center space-x-6 lg:space-x-14 mx-auto">
           {navItems.map((item) => {
             const isActive =
               item.label === "Home"
@@ -56,7 +56,7 @@ const WebNavbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative font-medium transition-all duration-200 ${
+                className={`relative font-medium transition-all duration-200 z-10 ${
                   isActive
                     ? "text-[#00427E]"
                     : "text-[#8dabcb] hover:text-[#00427E]"
@@ -71,19 +71,19 @@ const WebNavbar = () => {
           })}
         </div>
 
-        {/* User Action Icons - Desktop */}
-        <div className="hidden lg:flex items-center space-x-4 lg:space-x-3">
-          <div className="flex space-x-3 cursor-pointer">
+        {/* Profile */}
+        {!isMinimalHeader && (
+          <div className="hidden lg:flex items-center space-x-3">
             <img src={profile} alt="Profile" className="h-10" />
             <h1 className="text-[#0A2223] font-[500] pt-2">Scott Johnston</h1>
           </div>
-        </div>
+        )}
 
-        {/* Mobile Menu Button */}
+        {/* Mobile menu button */}
         <div className="lg:hidden">
           <button
-            onClick={toggleMenu}
-            className="text-black hover:text-green-700 focus:outline-none cursor-pointer"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-black hover:text-green-700 focus:outline-none"
           >
             {isMenuOpen ? (
               <RxCross1 className="text-[30px] font-[600]" />
@@ -94,7 +94,7 @@ const WebNavbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       {isMenuOpen && (
         <div className="lg:hidden mt-4 border-t-2 border-[#d3d9e5]">
           <div className="flex flex-col space-y-4 pt-2 pb-3">
