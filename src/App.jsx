@@ -11,7 +11,9 @@ import WebChat from "./Website/Pages/WebChat/WebChat";
 import MyOrderProductDetails from "./Website/Pages/MyOrder/components/MyOrderProductDetails/MyOrderProductDetails";
 import Login from './Auth/AdminAuth/Login/Login'
 import AdminLayout from './Admin/AdminLayout'
-import AdminDashBoard from './Admin/pages/AdminDashBoard'
+import AdminDashBoard from './Admin/pages/AdminDashBoard/AdminDashBoard'
+import AdminUsers from './Admin/pages/AdminUsers/AdminUsers'
+import AdminProductManagement from './Admin/pages/AdminProductManagement/AdminProductManagement'
 
 function App() {
   return (
@@ -30,6 +32,9 @@ function App() {
         <Route path='/Admin' element={<Login/>} />
         <Route element={<AdminLayout/>}>
 <Route path='/AdminDashBoard' element={<AdminDashBoard/>}/>
+<Route path='/AdminUsers' element={<AdminUsers/>}/>
+<Route path='/AdminProductManagement' element={<AdminProductManagement/>}/>
+
         </Route>
       </Routes>
     </>
