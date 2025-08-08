@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import './App.css'
+
+
 import { Route, Routes } from 'react-router-dom'
 import Websplash from './Components/WebComponents/Websplash/Websplash'
 import Layout from './Website/WebsiteLayout/Layout'
@@ -9,6 +9,9 @@ import Home from './Website/Pages/Home/Home'
 import MyOrder from './Website/Pages/MyOrder/MyOrder'
 import WebChat from "./Website/Pages/WebChat/WebChat";
 import MyOrderProductDetails from "./Website/Pages/MyOrder/components/MyOrderProductDetails/MyOrderProductDetails";
+import Login from './Auth/AdminAuth/Login/Login'
+import AdminLayout from './Admin/AdminLayout'
+import AdminDashBoard from './Admin/pages/AdminDashBoard'
 
 function App() {
   return (
@@ -22,6 +25,11 @@ function App() {
           <Route path="/MyOrder" element={<MyOrder />} />
             <Route path="/MyOrderProductDetails" element={<MyOrderProductDetails />} />
           <Route path="/WebChat" element={<WebChat />} />
+        </Route>
+        {/* Admin side  */}
+        <Route path='/Admin' element={<Login/>} />
+        <Route element={<AdminLayout/>}>
+<Route path='/AdminDashBoard' element={<AdminDashBoard/>}/>
         </Route>
       </Routes>
     </>
