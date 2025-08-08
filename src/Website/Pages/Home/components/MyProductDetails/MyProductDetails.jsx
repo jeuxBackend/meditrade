@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-import closeicon from "../Assets/closeicon.png";
-import bpimg1 from "../Assets/bpimg1.png";
-import bpimg2 from "../Assets/bpimg2.png";
-import bpimg3 from "../Assets/bpimg3.png";
-import bpimg4 from "../Assets/bpimg4.png";
-import bpimg5 from "../Assets/bpimg5.png";
-import bpimg6 from "../Assets/image6.png";
+import closeicon from "./Assets/closeicon.png";
+import bpimg1 from "./Assets/bpimg1.png";
+import bpimg2 from "./Assets/bpimg2.png";
+import bpimg3 from "./Assets/bpimg3.png";
+import bpimg4 from "./Assets/bpimg4.png";
+import bpimg5 from "./Assets/bpimg5.png";
+import bpimg6 from "./Assets/image6.png";
 import { BiMinus } from "react-icons/bi";
 import { PiPlus } from "react-icons/pi";
-import cart from "../Assets/cartimg.png";
-import cartplus from "../Assets/cart-plus.png";
+import cart from "./Assets/cartimg.png";
+import cartplus from "./Assets/cart-plus.png";
+import { Link } from "react-router-dom";
 
 function MyOrderProductDetails() {
-  const [count, setCount] = useState(3); // Initial value 3
+  const [count, setCount] = useState(3); 
 
   const handleMinus = () => {
     if (count > 0) {
-      // Optional: Negative na ho
       setCount(count - 1);
     }
   };
@@ -26,7 +26,7 @@ function MyOrderProductDetails() {
   };
 
   return (
-    <div className=" px-3 md:px-7 py-4 mt-7">
+    <div className=" px-3 md:px-7 py-4 mt-4">
       <div className="flex items-center gap-3">
         <img src={closeicon} alt="" className="h-9" />
         <p className="text-2xl font-semibold">Product Details</p>
@@ -112,10 +112,12 @@ function MyOrderProductDetails() {
                 </div>
               </div>
 
+             <Link to='/MyCart'>
               <div className="flex cursor-pointer flex-nowrap items-center justify-center bg-white py-2 px-20 gap-2 rounded-md">
                 <img src={cart} alt="" className="h-8" />
                 <p className="font-semibold text-nowrap">Add To Cart</p>
               </div>
+             </Link>
             </div>
           </div>
         </div>

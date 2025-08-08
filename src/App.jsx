@@ -12,6 +12,7 @@ import AdminLayout from "./Admin/AdminLayout";
 import AdminDashBoard from "./Admin/pages/AdminDashBoard/AdminDashBoard";
 import AdminUsers from "./Admin/pages/AdminUsers/AdminUsers";
 import AdminProductManagement from "./Admin/pages/AdminProductManagement/AdminProductManagement";
+import MyCart from "./Website/Pages/Home/components/MyCart/MyCart";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/Home" element={<Home />} />
           <Route path="/MyOrder" element={<MyOrder />} />
           <Route path="/MyProductDetails" element={<MyProductDetails />} />
+          <Route path="/MyCart" element={<MyCart />} />
           <Route path="/WebChat" element={<WebChat />} />
         </Route>
         {/* Admin side  */}
