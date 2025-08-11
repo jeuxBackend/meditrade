@@ -8,11 +8,16 @@ import MyOrder from "./Website/Pages/MyOrder/MyOrder";
 import WebChat from "./Website/Pages/WebChat/WebChat";
 import MyProductDetails from "./Website/Pages/Home/components/MyProductDetails/MyProductDetails";
 import Login from "./Auth/AdminAuth/Login/Login";
-import AdminLayout from "./Admin/AdminLayout";
+import AdminLayout from "./Admin/AdminLayOut/AdminLayout";
 import AdminDashBoard from "./Admin/pages/AdminDashBoard/AdminDashBoard";
 import AdminUsers from "./Admin/pages/AdminUsers/AdminUsers";
 import AdminProductManagement from "./Admin/pages/AdminProductManagement/AdminProductManagement";
 import MyCart from "./Website/Pages/Home/components/MyCart/MyCart";
+import AdminBrand from "./Admin/pages/AdminBrand/AdminBrand";
+import AdminQuoteRequests from "./Admin/pages/AdminQuoteRequests/AdminQuoteRequests";
+import AdminOrderManagement from "./Admin/pages/AdminOrderManagement/AdminOrderManagement";
+import AdminSubAdmins from "./Admin/pages/AdminSubadmins/AdminSubadmins";
+import AdminSettings from "./Admin/pages/AdminSettings/AdminSettings";
 
 function App() {
   return (
@@ -37,6 +42,11 @@ function App() {
             path="/AdminProductManagement"
             element={<AdminProductManagement />}
           />
+          <Route path='/AdminBrand' element={<AdminBrand/>}/>
+          <Route path='/AdminQuoteRequests' element={<AdminQuoteRequests/>}/>
+          <Route path='/AdminOrderManagement' element={<AdminOrderManagement/>}/>
+          <Route path='/AdminSubAdmins' element={<AdminSubAdmins/>}/>
+          <Route path='/AdminSettings' element={<AdminSettings/>}/>
         </Route>
       </Routes>
     </>
