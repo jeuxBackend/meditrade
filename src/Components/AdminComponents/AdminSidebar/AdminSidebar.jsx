@@ -14,7 +14,7 @@ import QuoteImg from "./Assets/QuoteImg.png";
 import OrderImg from "./Assets/OrderImg.png";
 import SubAdminImg from "./Assets/SubAdminImg.png";
 import SettingImg from "./Assets/SettingImg.png";
-import arrowImg from './Assets/arrowImg.png'
+import arrowImg from "./Assets/arrowImg.png";
 
 const AdminSidebar = () => {
   const location = useLocation();
@@ -29,14 +29,54 @@ const AdminSidebar = () => {
 
   // Sidebar links
   const links = [
-    { path: "/AdminDashboard", img: Dashboard, label: "Dashboard", routes: ["/AdminDashboard","/TopSellingProducts"] },
-    { path: "/AdminUsers", img: UsersImg, label: "Users", routes: ["/AdminUsers"] },
-    { path: "/AdminProductManagement", img: ProductImg, label: "Product Management", routes: ["/AdminProductManagement"] },
-    { path: "/AdminBrand", img: BrandImg, label: "Brand", routes: ["/AdminBrand"] },
-    { path: "/AdminQuoteRequests", img: QuoteImg, label: "Quote Requests", routes: ["/AdminQuoteRequests"] },
-    { path: "/AdminOrderManagement", img: OrderImg, label: "Order Management", routes: ["/AdminOrderManagement"] },
-    { path: "/AdminSubAdmins", img: SubAdminImg, label: "Sub-Admins", routes: ["AdminSubAdmins"] },
-    { path: "/AdminSettings", img: SettingImg, label: "Settings", routes: ["/AdminSettings"] },
+    {
+      path: "/AdminDashboard",
+      img: Dashboard,
+      label: "Dashboard",
+      routes: ["/AdminDashboard", "/TopSellingProducts"],
+    },
+    {
+      path: "/AdminUsers",
+      img: UsersImg,
+      label: "Users",
+      routes: ["/AdminUsers"],
+    },
+    {
+      path: "/AdminProductManagement",
+      img: ProductImg,
+      label: "Product Management",
+      routes: ["/AdminProductManagement"],
+    },
+    {
+      path: "/AdminBrand",
+      img: BrandImg,
+      label: "Brand",
+      routes: ["/AdminBrand"],
+    },
+    {
+      path: "/AdminQuoteRequests",
+      img: QuoteImg,
+      label: "Quote Requests",
+      routes: ["/AdminQuoteRequests"],
+    },
+    {
+      path: "/AdminOrderManagement",
+      img: OrderImg,
+      label: "Order Management",
+      routes: ["/AdminOrderManagement"],
+    },
+    {
+      path: "/AdminSubAdmins",
+      img: SubAdminImg,
+      label: "Sub-Admins",
+      routes: ["AdminSubAdmins"],
+    },
+    {
+      path: "/AdminSettings",
+      img: SettingImg,
+      label: "Settings",
+      routes: ["/AdminSettings"],
+    },
   ];
 
   // Page headings
@@ -51,7 +91,7 @@ const AdminSidebar = () => {
     "/AdminSubAdmins": { heading: "Sub-Admins" },
     "/AdminSettings": { heading: "Settings" },
   };
-  const backEnabledPaths = ['/TopSellingProducts'];
+  const backEnabledPaths = ["/TopSellingProducts"];
   const isBackButtonAllowed = backEnabledPaths.some((path) =>
     location.pathname.startsWith(path)
   );
@@ -61,7 +101,9 @@ const AdminSidebar = () => {
   const closeSidebar = () => setIsSidebarOpen(false);
 
   const findActiveNavItem = (currentPath) =>
-    links.find((link) => link.routes?.some((route) => currentPath.startsWith(route)));
+    links.find((link) =>
+      link.routes?.some((route) => currentPath.startsWith(route))
+    );
 
   // Update heading & active link
   useEffect(() => {
@@ -98,7 +140,9 @@ const AdminSidebar = () => {
           onMouseLeave={() => setHoveredPath(null)}
           className="flex px-0"
         >
-          {shouldHighlight && <span className="bg-white w-[5px] rounded-r-full h-auto"></span>}
+          {shouldHighlight && (
+            <span className="bg-white w-[5px] rounded-r-full h-auto"></span>
+          )}
           <motion.div
             className={`w-[245px] py-3 ms-3 flex items-center ps-4 rounded-lg transition-all duration-300 text-white ${
               shouldHighlight ? "bg-white/25" : ""
@@ -106,7 +150,11 @@ const AdminSidebar = () => {
             whileHover={{ scale: 0.98 }}
             whileTap={{ scale: 0.95 }}
           >
-            <img src={item.img} alt={item.label} className="w-[25px] h-[25px]" />
+            <img
+              src={item.img}
+              alt={item.label}
+              className="w-[25px] h-[25px]"
+            />
             <span className="ms-2 text-[17px]">{item.label}</span>
           </motion.div>
         </Link>
@@ -123,23 +171,25 @@ const AdminSidebar = () => {
         transition={{ duration: 0.4 }}
         className="lg:ml-[290px] ml-auto flex justify-between items-center md:p-6 p-4 shadow-sm border-b-2 border-gray-200"
       >
-       <div className="flex items-center gap-x-2">
-                 {isBackButtonAllowed ? (
-                   <img
-                     src={arrowImg}
-                     className="w-[35px] cursor-pointer"
-                     onClick={() => navigate(-1)}
-                     title="Go Back"
-                   />
-                 ) : (
-                   <img
-                     src={arrowImg}
-                     className="w-[35px] hidden"
-                     title="Back not available on this page"
-                   />
-                 )}
-                 <h1 className="md:text-[25px] text-[20px] font-bold">{pageHeading}</h1>
-               </div>
+        <div className="flex items-center gap-x-2">
+          {isBackButtonAllowed ? (
+            <img
+              src={arrowImg}
+              className="w-[35px] cursor-pointer"
+              onClick={() => navigate(-1)}
+              title="Go Back"
+            />
+          ) : (
+            <img
+              src={arrowImg}
+              className="w-[35px] hidden"
+              title="Back not available on this page"
+            />
+          )}
+          <h1 className="md:text-[25px] text-[20px] font-bold">
+            {pageHeading}
+          </h1>
+        </div>
         <button
           onClick={toggleSidebar}
           className="lg:hidden rounded-lg bg-[#00427E] p-2 shadow-md text-white"
@@ -174,12 +224,24 @@ const AdminSidebar = () => {
               className="flex flex-col gap-3"
               initial="hidden"
               animate="visible"
-              variants={{ visible: { transition: { staggerChildren: 0.1 } }, hidden: {} }}
+              variants={{
+                visible: { transition: { staggerChildren: 0.1 } },
+                hidden: {},
+              }}
             >
               <p className="pl-6 font-medium text-[14px]">Administration</p>
               {links
                 .filter((item) =>
-                  ["Dashboard", "Users", "Product Management", "Brand", "Quote Requests","Order Management","Sub-Admins","Settings"].includes(item.label)
+                  [
+                    "Dashboard",
+                    "Users",
+                    "Product Management",
+                    "Brand",
+                    "Quote Requests",
+                    "Order Management",
+                    "Sub-Admins",
+                    "Settings",
+                  ].includes(item.label)
                 )
                 .map(renderSidebarLink)}
             </motion.div>
