@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const AdminDashboard = () => {
   return (
-    <div className="bg-[#fafafa]">
+    <div className="bg-[#fafafa] lg:ml-[295px] ">
       <div className="md:p-6 p-4 ">
         <div className="space-y-2">
           <p className="md:text-3xl text-[25px] font-semibold text-black">
