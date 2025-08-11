@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import closeicon from "./Assets/closeicon.png";
 import deleteimg from "./Assets/deleteimg.png";
 import { Checkbox } from "@mui/material";
@@ -12,6 +13,7 @@ import bpimg4 from "./Assets/bpimg4.png";
 
 function MyCart() {
   const [count, setCount] = useState(3);
+   const navigate = useNavigate();
 
   const handleMinus = () => {
     if (count > 0) setCount(count - 1);
@@ -23,10 +25,13 @@ function MyCart() {
 
   return (
     <div className="px-3 md:px-7 py-4 mt-4">
-      <div className="flex items-center gap-3">
-        <img src={closeicon} alt="" className="h-8 md:h-9" />
-        <p className="text-xl md:text-2xl font-semibold">My Cart</p>
-      </div>
+      <div
+      className="flex items-center gap-3 cursor-pointer"
+      onClick={() => navigate(-1)}
+    >
+      <img src={closeicon} alt="" className="h-8 md:h-9" />
+      <p className="text-xl md:text-2xl font-semibold">My Cart</p>
+    </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3  gap-4">
         <div className="col-span-1 lg:col-span-2 space-y-3 mt-5">
@@ -93,31 +98,33 @@ function MyCart() {
                 </div>
               </div>
 
-              <div className="space-y-2 items-center mx-auto sm:mx-0 text-sm md:text-base">
+              <div className="space-y-2 text-nowrap items-center mx-auto sm:mx-0 text-sm md:text-base">
                 <p className="text-[#8f8f8f] py-2">
                   Total Price:{" "}
                   <span className="text-[#333333] font-semibold text-lg md:text-2xl">
                     $100.00
                   </span>
                 </p>
-                <div className="flex items-center gap-2">
-                  <div
-                    onClick={handleMinus}
-                    className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
-                  >
-                    <BiMinus className="text-base md:text-lg" />
+                <div className="flex flex-row  sm:flex-col items-center gap-2">
+                  <div className="flex items-center gap-2">
+                    <div
+                      onClick={handleMinus}
+                      className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
+                    >
+                      <BiMinus className="text-base md:text-lg" />
+                    </div>
+                    <p className="font-semibold text-lg">{count}</p>
+                    <div
+                      onClick={handlePlus}
+                      className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
+                    >
+                      <PiPlus className="text-base md:text-lg" />
+                    </div>
                   </div>
-                  <p className="font-semibold text-lg">{count}</p>
-                  <div
-                    onClick={handlePlus}
-                    className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
-                  >
-                    <PiPlus className="text-base md:text-lg" />
+                  <div className="flex items-center cursor-pointer gap-2">
+                    <img src={deleteimg} alt="" className="h-6 md:h-7" />
+                    <p className="text-[#c7493e] font-medium">Remove</p>
                   </div>
-                </div>
-                <div className="flex items-center cursor-pointer gap-2">
-                  <img src={deleteimg} alt="" className="h-6 md:h-7" />
-                  <p className="text-[#c7493e] font-medium">Remove</p>
                 </div>
               </div>
             </div>
@@ -159,31 +166,33 @@ function MyCart() {
                 </div>
               </div>
 
-              <div className="space-y-2 items-center mx-auto sm:mx-0 text-sm md:text-base">
+              <div className="space-y-2 text-nowrap  items-center mx-auto sm:mx-0 text-sm md:text-base">
                 <p className="text-[#8f8f8f] py-2">
                   Total Price:{" "}
                   <span className="text-[#333333] font-semibold text-lg md:text-2xl">
                     $100.00
                   </span>
                 </p>
-                <div className="flex items-center gap-2">
-                  <div
-                    onClick={handleMinus}
-                    className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
-                  >
-                    <BiMinus className="text-base md:text-lg" />
+                <div className="flex flex-row  sm:flex-col items-center gap-2">
+                  <div className="flex items-center gap-2">
+                    <div
+                      onClick={handleMinus}
+                      className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
+                    >
+                      <BiMinus className="text-base md:text-lg" />
+                    </div>
+                    <p className="font-semibold text-lg">{count}</p>
+                    <div
+                      onClick={handlePlus}
+                      className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
+                    >
+                      <PiPlus className="text-base md:text-lg" />
+                    </div>
                   </div>
-                  <p className="font-semibold text-lg">{count}</p>
-                  <div
-                    onClick={handlePlus}
-                    className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
-                  >
-                    <PiPlus className="text-base md:text-lg" />
+                  <div className="flex items-center cursor-pointer gap-2">
+                    <img src={deleteimg} alt="" className="h-6 md:h-7" />
+                    <p className="text-[#c7493e] font-medium">Remove</p>
                   </div>
-                </div>
-                <div className="flex items-center cursor-pointer gap-2">
-                  <img src={deleteimg} alt="" className="h-6 md:h-7" />
-                  <p className="text-[#c7493e] font-medium">Remove</p>
                 </div>
               </div>
             </div>
@@ -225,31 +234,33 @@ function MyCart() {
                 </div>
               </div>
 
-              <div className="space-y-2 items-center mx-auto sm:mx-0 text-sm md:text-base">
+              <div className="space-y-2 text-nowrap items-center mx-auto sm:mx-0 text-sm md:text-base">
                 <p className="text-[#8f8f8f] py-2">
                   Total Price:{" "}
                   <span className="text-[#333333] font-semibold text-lg md:text-2xl">
                     $100.00
                   </span>
                 </p>
-                <div className="flex items-center gap-2">
-                  <div
-                    onClick={handleMinus}
-                    className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
-                  >
-                    <BiMinus className="text-base md:text-lg" />
+                <div className="flex flex-row  sm:flex-col items-center gap-2">
+                  <div className="flex items-center gap-2">
+                    <div
+                      onClick={handleMinus}
+                      className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
+                    >
+                      <BiMinus className="text-base md:text-lg" />
+                    </div>
+                    <p className="font-semibold text-lg">{count}</p>
+                    <div
+                      onClick={handlePlus}
+                      className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
+                    >
+                      <PiPlus className="text-base md:text-lg" />
+                    </div>
                   </div>
-                  <p className="font-semibold text-lg">{count}</p>
-                  <div
-                    onClick={handlePlus}
-                    className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
-                  >
-                    <PiPlus className="text-base md:text-lg" />
+                  <div className="flex items-center cursor-pointer gap-2">
+                    <img src={deleteimg} alt="" className="h-6 md:h-7" />
+                    <p className="text-[#c7493e] font-medium">Remove</p>
                   </div>
-                </div>
-                <div className="flex items-center cursor-pointer gap-2">
-                  <img src={deleteimg} alt="" className="h-6 md:h-7" />
-                  <p className="text-[#c7493e] font-medium">Remove</p>
                 </div>
               </div>
             </div>
@@ -291,31 +302,33 @@ function MyCart() {
                 </div>
               </div>
 
-              <div className="space-y-2 items-center mx-auto sm:mx-0 text-sm md:text-base">
+              <div className="space-y-2 text-nowrap items-center mx-auto sm:mx-0 text-sm md:text-base">
                 <p className="text-[#8f8f8f] py-2">
                   Total Price:{" "}
                   <span className="text-[#333333] font-semibold text-lg md:text-2xl">
                     $100.00
                   </span>
                 </p>
-                <div className="flex items-center gap-2">
-                  <div
-                    onClick={handleMinus}
-                    className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
-                  >
-                    <BiMinus className="text-base md:text-lg" />
+                <div className="flex flex-row  sm:flex-col items-center gap-2">
+                  <div className="flex items-center gap-2">
+                    <div
+                      onClick={handleMinus}
+                      className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
+                    >
+                      <BiMinus className="text-base md:text-lg" />
+                    </div>
+                    <p className="font-semibold text-lg">{count}</p>
+                    <div
+                      onClick={handlePlus}
+                      className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
+                    >
+                      <PiPlus className="text-base md:text-lg" />
+                    </div>
                   </div>
-                  <p className="font-semibold text-lg">{count}</p>
-                  <div
-                    onClick={handlePlus}
-                    className="bg-[#ebf1ff] p-2 rounded-sm cursor-pointer"
-                  >
-                    <PiPlus className="text-base md:text-lg" />
+                  <div className="flex items-center cursor-pointer gap-2">
+                    <img src={deleteimg} alt="" className="h-6 md:h-7" />
+                    <p className="text-[#c7493e] font-medium">Remove</p>
                   </div>
-                </div>
-                <div className="flex items-center cursor-pointer gap-2">
-                  <img src={deleteimg} alt="" className="h-6 md:h-7" />
-                  <p className="text-[#c7493e] font-medium">Remove</p>
                 </div>
               </div>
             </div>
@@ -354,13 +367,20 @@ function MyCart() {
                 <p className="font-semibold text-xl">$210.00</p>
               </div>
             </div>
-            <div className=" space-y-2 mt-5 px-5">
-              <div className="flex items-center justify-center w-[100%]  bg-[#00427e] cursor-pointer py-3 text-white gap-2 rounded-md">
-                <p className="text-nowrap text-sm lg:text-base">Proceed To Checkout (2)</p>
+            <div className="mt-5 px-5">
+            <Link to="/DeliveryInformation">
+              <div className="flex items-center my-3 justify-center w-[100%]  bg-[#00427e] cursor-pointer py-3 text-white gap-2 rounded-md">
+                <p className="text-nowrap text-sm lg:text-base">
+                  Proceed To Checkout (2)
+                </p>
               </div>
-              <div className="flex items-center justify-center cursor-pointer w-[100%]  font-medium bg-[#eaebfc]  py-3 text-black gap-2 rounded-md">
+            </Link>
+              <div className="flex items-center justify-center cursor-pointer w-[100%]  font-medium bg-[#eaebfc]  py-3 text-[#333333] gap-2 rounded-md">
                 <p className="text-sm lg:text-base">Request a Quote</p>
               </div>
+              <p className="text-center py-2 text-[#333333] font-medium">
+                Submit a Quote Request for Bulk Purchase
+              </p>
             </div>
           </div>
         </div>

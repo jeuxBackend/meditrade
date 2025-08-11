@@ -11,9 +11,11 @@ import { PiPlus } from "react-icons/pi";
 import cart from "./Assets/cartimg.png";
 import cartplus from "./Assets/cart-plus.png";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function MyOrderProductDetails() {
-  const [count, setCount] = useState(3); 
+  const [count, setCount] = useState(3);
+   const navigate = useNavigate(); 
 
   const handleMinus = () => {
     if (count > 0) {
@@ -27,10 +29,13 @@ function MyOrderProductDetails() {
 
   return (
     <div className=" px-3 md:px-7 py-4 mt-4">
-      <div className="flex items-center gap-3">
-        <img src={closeicon} alt="" className="h-9" />
-        <p className="text-2xl font-semibold">Product Details</p>
-      </div>
+       <div
+      className="flex items-center gap-3 cursor-pointer"
+      onClick={() => navigate(-1)}
+    >
+      <img src={closeicon} alt="" className="h-8 md:h-9" />
+      <p className="text-xl md:text-2xl font-semibold">My Cart</p>
+    </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5 pb-4 border-b-2 border-dashed border-[#a3a3a3]">
         <div>
           <div>
