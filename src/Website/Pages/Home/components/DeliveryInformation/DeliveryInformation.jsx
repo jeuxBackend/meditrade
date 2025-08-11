@@ -284,7 +284,7 @@ function DeliveryInformation() {
               </div>
             </div>
             <div className="mt-15 px-5">
-              <Link to="/DeliveryInformation">
+              <Link to="/PaymentMethod">
                 <div className="flex items-center my-3 justify-center w-full bg-[#00427e] cursor-pointer py-3 text-white gap-2 rounded-md">
                   <p className="text-nowrap text-sm lg:text-base">
                     Proceed To Pay

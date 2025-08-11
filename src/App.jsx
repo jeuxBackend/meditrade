@@ -14,6 +14,7 @@ import AdminUsers from "./Admin/pages/AdminUsers/AdminUsers";
 import AdminProductManagement from "./Admin/pages/AdminProductManagement/AdminProductManagement";
 import MyCart from "./Website/Pages/Home/components/MyCart/MyCart";
 import DeliveryInformation from "./Website/Pages/Home/components/DeliveryInformation/DeliveryInformation";
+import PaymentMethod from "./Website/Pages/Home/components/PaymentMethod/PaymentMethod";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/MyProductDetails" element={<MyProductDetails />} />
           <Route path="/MyCart" element={<MyCart />} />
           <Route path="/DeliveryInformation" element={<DeliveryInformation />} />
+          <Route path="/PaymentMethod" element={<PaymentMethod />} />
           <Route path="/WebChat" element={<WebChat />} />
         </Route>
         {/* Admin side  */}
