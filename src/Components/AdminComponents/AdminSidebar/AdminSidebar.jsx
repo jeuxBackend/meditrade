@@ -14,6 +14,7 @@ import QuoteImg from "./Assets/QuoteImg.png";
 import OrderImg from "./Assets/OrderImg.png";
 import SubAdminImg from "./Assets/SubAdminImg.png";
 import SettingImg from "./Assets/SettingImg.png";
+import arrowImg from './Assets/arrowImg.png'
 
 const AdminSidebar = () => {
   const location = useLocation();
@@ -28,7 +29,7 @@ const AdminSidebar = () => {
 
   // Sidebar links
   const links = [
-    { path: "/AdminDashboard", img: Dashboard, label: "Dashboard", routes: ["/AdminDashboard"] },
+    { path: "/AdminDashboard", img: Dashboard, label: "Dashboard", routes: ["/AdminDashboard","/TopSellingProducts"] },
     { path: "/AdminUsers", img: UsersImg, label: "Users", routes: ["/AdminUsers"] },
     { path: "/AdminProductManagement", img: ProductImg, label: "Product Management", routes: ["/AdminProductManagement"] },
     { path: "/AdminBrand", img: BrandImg, label: "Brand", routes: ["/AdminBrand"] },
@@ -41,6 +42,7 @@ const AdminSidebar = () => {
   // Page headings
   const pageConfigs = {
     "/AdminDashboard": { heading: "Dashboard" },
+    "/TopSellingProducts": { heading: "To Selling Products" },
     "/AdminUsers": { heading: "Users" },
     "/AdminProductManagement": { heading: "Product Management" },
     "/AdminBrand": { heading: "Brand" },
@@ -49,6 +51,10 @@ const AdminSidebar = () => {
     "/AdminSubAdmins": { heading: "Sub-Admins" },
     "/AdminSettings": { heading: "Settings" },
   };
+  const backEnabledPaths = ['/TopSellingProducts'];
+  const isBackButtonAllowed = backEnabledPaths.some((path) =>
+    location.pathname.startsWith(path)
+  );
 
   // Helpers
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
@@ -117,7 +123,23 @@ const AdminSidebar = () => {
         transition={{ duration: 0.4 }}
         className="lg:ml-[290px] ml-auto flex justify-between items-center md:p-6 p-4 shadow-sm border-b-2 border-gray-200"
       >
-        <h1 className="text-[25px] font-bold">{pageHeading}</h1>
+       <div className="flex items-center gap-x-2">
+                 {isBackButtonAllowed ? (
+                   <img
+                     src={arrowImg}
+                     className="w-[35px] cursor-pointer"
+                     onClick={() => navigate(-1)}
+                     title="Go Back"
+                   />
+                 ) : (
+                   <img
+                     src={arrowImg}
+                     className="w-[35px] hidden"
+                     title="Back not available on this page"
+                   />
+                 )}
+                 <h1 className="text-[25px] font-bold">{pageHeading}</h1>
+               </div>
         <button
           onClick={toggleSidebar}
           className="lg:hidden rounded-lg bg-[#00427E] p-2 shadow-md text-white"
