@@ -18,6 +18,8 @@ import AdminQuoteRequests from "./Admin/pages/AdminQuoteRequests/AdminQuoteReque
 import AdminOrderManagement from "./Admin/pages/AdminOrderManagement/AdminOrderManagement";
 import AdminSubAdmins from "./Admin/pages/AdminSubadmins/AdminSubadmins";
 import AdminSettings from "./Admin/pages/AdminSettings/AdminSettings";
+import DeliveryInformation from "./Website/Pages/Home/components/DeliveryInformation/DeliveryInformation";
+import PaymentMethod from "./Website/Pages/Home/components/PaymentMethod/PaymentMethod";
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
           <Route path="/MyOrder" element={<MyOrder />} />
           <Route path="/MyProductDetails" element={<MyProductDetails />} />
           <Route path="/MyCart" element={<MyCart />} />
+          <Route path="/DeliveryInformation" element={<DeliveryInformation />} />
+          <Route path="/PaymentMethod" element={<PaymentMethod />} />
           <Route path="/WebChat" element={<WebChat />} />
         </Route>
         {/* Admin side  */}
