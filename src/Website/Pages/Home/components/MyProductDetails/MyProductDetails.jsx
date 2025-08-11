@@ -15,7 +15,7 @@ import { useNavigate } from "react-router-dom";
 
 function MyOrderProductDetails() {
   const [count, setCount] = useState(3);
-   const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleMinus = () => {
     if (count > 0) {
@@ -29,13 +29,13 @@ function MyOrderProductDetails() {
 
   return (
     <div className=" px-3 md:px-7 py-4 mt-4">
-       <div
-      className="flex items-center gap-3 cursor-pointer"
-      onClick={() => navigate(-1)}
-    >
-      <img src={closeicon} alt="" className="h-8 md:h-9" />
-      <p className="text-xl md:text-2xl font-semibold">My Cart</p>
-    </div>
+      <div
+        className="flex items-center gap-3 cursor-pointer"
+        onClick={() => navigate(-1)}
+      >
+        <img src={closeicon} alt="" className="h-8 md:h-9" />
+        <p className="text-xl md:text-2xl font-semibold">My Cart</p>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5 pb-4 border-b-2 border-dashed border-[#a3a3a3]">
         <div>
           <div>
@@ -117,12 +117,12 @@ function MyOrderProductDetails() {
                 </div>
               </div>
 
-             <Link to='/MyCart'>
-              <div className="flex cursor-pointer flex-nowrap items-center justify-center bg-white py-2 px-20 gap-2 rounded-md">
-                <img src={cart} alt="" className="h-8" />
-                <p className="font-semibold text-nowrap">Add To Cart</p>
-              </div>
-             </Link>
+              <Link to="/MyCart">
+                <div className="flex cursor-pointer flex-nowrap items-center justify-center bg-white py-2 px-20 gap-2 rounded-md">
+                  <img src={cart} alt="" className="h-8" />
+                  <p className="font-semibold text-nowrap">Add To Cart</p>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -172,17 +172,18 @@ function MyOrderProductDetails() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
-                    <img src={cartplus} alt="" className="h-5 " />
-                    <p className="text-nowrap text-sm lg:text-base">
-                      Add To Cart
-                    </p>
-                  </div>
+                  <Link to="/MyCart">
+                    <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
+                      <img src={cartplus} alt="" className="h-5 " />
+                      <p className="text-nowrap text-sm lg:text-base">
+                        Add To Cart
+                      </p>
+                    </div>
+                  </Link>
                   <div className="flex items-center justify-center cursor-pointer px-23 lg:px-14 xl:px-23 font-medium bg-[#eaebfc]  py-2 text-black gap-2 rounded-md">
                     <p className="text-sm lg:text-base">View Details</p>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -228,17 +229,18 @@ function MyOrderProductDetails() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
-                    <img src={cartplus} alt="" className="h-5 " />
-                    <p className="text-nowrap text-sm lg:text-base">
-                      Add To Cart
-                    </p>
-                  </div>
+                  <Link to="/MyCart">
+                    <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
+                      <img src={cartplus} alt="" className="h-5 " />
+                      <p className="text-nowrap text-sm lg:text-base">
+                        Add To Cart
+                      </p>
+                    </div>
+                  </Link>
                   <div className="flex items-center justify-center cursor-pointer px-23 lg:px-14 xl:px-23 font-medium bg-[#eaebfc]  py-2 text-black gap-2 rounded-md">
                     <p className="text-sm lg:text-base">View Details</p>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -284,17 +286,18 @@ function MyOrderProductDetails() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
-                    <img src={cartplus} alt="" className="h-5 " />
-                    <p className="text-nowrap text-sm lg:text-base">
-                      Add To Cart
-                    </p>
-                  </div>
+                  <Link to="/MyCart">
+                    <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
+                      <img src={cartplus} alt="" className="h-5 " />
+                      <p className="text-nowrap text-sm lg:text-base">
+                        Add To Cart
+                      </p>
+                    </div>
+                  </Link>
                   <div className="flex items-center justify-center cursor-pointer px-23 lg:px-14 xl:px-23 font-medium bg-[#eaebfc]  py-2 text-black gap-2 rounded-md">
                     <p className="text-sm lg:text-base">View Details</p>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -340,17 +343,18 @@ function MyOrderProductDetails() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
-                    <img src={cartplus} alt="" className="h-5 " />
-                    <p className="text-nowrap text-sm lg:text-base">
-                      Add To Cart
-                    </p>
-                  </div>
+                  <Link to="/MyCart">
+                    <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
+                      <img src={cartplus} alt="" className="h-5 " />
+                      <p className="text-nowrap text-sm lg:text-base">
+                        Add To Cart
+                      </p>
+                    </div>
+                  </Link>
                   <div className="flex items-center justify-center cursor-pointer px-23 lg:px-14 xl:px-23 font-medium bg-[#eaebfc]  py-2 text-black gap-2 rounded-md">
                     <p className="text-sm lg:text-base">View Details</p>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -396,25 +400,28 @@ function MyOrderProductDetails() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
-                    <img src={cartplus} alt="" className="h-5 " />
-                    <p className="text-nowrap text-sm lg:text-base">
-                      Add To Cart
-                    </p>
-                  </div>
+                  <Link to="/MyCart">
+                    <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
+                      <img src={cartplus} alt="" className="h-5 " />
+                      <p className="text-nowrap text-sm lg:text-base">
+                        Add To Cart
+                      </p>
+                    </div>
+                  </Link>
                   <div className="flex items-center justify-center cursor-pointer px-23 lg:px-14 xl:px-23 font-medium bg-[#eaebfc]  py-2 text-black gap-2 rounded-md">
                     <p className="text-sm lg:text-base">View Details</p>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
-         
         </div>
       </div>
       <div className="flex items-center justify-center mt-5 w-full">
-        <button className="border-[#d6dbe8] border py-3 text-center w-[50%] lg:w-[20%] text-[#333333] rounded-full font-medium cursor-pointer"> See more</button>
+        <button className="border-[#d6dbe8] border py-3 text-center w-[50%] lg:w-[20%] text-[#333333] rounded-full font-medium cursor-pointer">
+          {" "}
+          See more
+        </button>
       </div>
     </div>
   );

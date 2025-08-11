@@ -29,16 +29,20 @@ function PaymentMethod() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* LEFT SIDE - Delivery Form */}
         <div className="col-span-1 lg:col-span-2 space-y-3 mt-5">
-          <div className="bg-white py-3 px-3 flex flex-wrap items-center justify-between gap-3 rounded-xl">
+             <Link to='/SelectCard'>
+          <div className="bg-white py-3 px-3 my-3 flex flex-wrap items-center justify-between gap-3 rounded-xl">
             <div className="flex items-center gap-3">
               <div className="bg-[#ebf1ff] py-3 px-3 rounded-lg">
                 <img src={image37} alt="" className="h-8 " />
               </div>
               <p className="text-[#333333] font-semibold text-2xl">PayPal</p>
             </div>
+            
             <TfiAngleRight className="text-[#333333] text-xl font-extrabold" />
           </div>
-          <div className="bg-white py-3 px-3 flex flex-wrap items-center justify-between gap-3 rounded-xl">
+            </Link>
+              <Link to='/SelectCard'>
+          <div className="bg-white py-3 px-3 my-3 flex flex-wrap items-center justify-between gap-3 rounded-xl">
           <div className="flex items-center gap-3">
               <div className="bg-[#ebf1ff] py-3 px-3 rounded-lg">
               <img src={image38} alt="" className="h-8 " />
@@ -47,16 +51,21 @@ function PaymentMethod() {
           </div>
             <TfiAngleRight className="text-[#333333] text-xl font-extrabold" />
           </div>
-          <div className="bg-white py-3 px-3 flex flex-wrap items-center justify-between gap-3 rounded-xl">
+          </Link>
+           <Link to='/SelectCard'>
+          <div className="bg-white py-3 my-3 px-3 flex flex-wrap items-center justify-between gap-3 rounded-xl">
              <div className="flex items-center gap-3">
               <div className="bg-[#ebf1ff] py-3 px-3 rounded-lg">
               <img src={image39} alt="" className="h-8 " />
             </div>
               <p className="text-[#333333] font-semibold text-2xl">Stripe</p>
           </div>
+
             <TfiAngleRight className="text-[#333333] text-xl font-extrabold" />
           </div>
-          <div className="bg-white py-3 px-3 flex flex-wrap items-center justify-between gap-3 rounded-xl">
+          </Link>
+           <Link to='/SelectCard'>
+          <div className="bg-white py-3 px-3 my-3 flex flex-wrap items-center justify-between gap-3 rounded-xl">
              <div className="flex items-center gap-3">
               <div className="bg-[#ebf1ff] py-3 px-3 rounded-lg">
               <img src={image41} alt="" className="h-8 " />
@@ -65,7 +74,9 @@ function PaymentMethod() {
           </div>
             <TfiAngleRight className="text-[#333333] text-xl font-extrabold" />
           </div>
-          <div className="bg-white py-3 px-3 flex flex-wrap items-center justify-between gap-3 rounded-xl">
+          </Link>
+           <Link to='/SelectCard'>
+          <div className="bg-white py-3 px-3 my-3 flex flex-wrap items-center justify-between gap-3 rounded-xl">
             <div className="flex items-center gap-3">
               <div className="bg-[#ebf1ff] py-3 px-3 rounded-lg">
               <img src={image40} alt="" className="h-8 " />
@@ -74,7 +85,9 @@ function PaymentMethod() {
           </div>
             <TfiAngleRight className="text-[#333333] text-xl font-extrabold" />
           </div>
-          <div className="bg-white py-3 px-3 flex flex-wrap items-center justify-between gap-3 rounded-xl">
+          </Link>
+           <Link to='/SelectCard'>
+          <div className="bg-white py-3 px-3 my-3 flex flex-wrap items-center justify-between gap-3 rounded-xl">
             <div className="flex items-center gap-3">
               <div className="bg-[#ebf1ff] py-3 px-3 rounded-lg">
               <img src={image43} alt="" className="h-8 " />
@@ -83,6 +96,7 @@ function PaymentMethod() {
           </div>
             <TfiAngleRight className="text-[#333333] text-xl font-extrabold " />
           </div>
+          </Link>
         </div>
 
         {/* RIGHT SIDE - Order Summary */}
