@@ -138,7 +138,7 @@ const AdminSidebar = () => {
                      title="Back not available on this page"
                    />
                  )}
-                 <h1 className="text-[25px] font-bold">{pageHeading}</h1>
+                 <h1 className="md:text-[25px] text-[20px] font-bold">{pageHeading}</h1>
                </div>
         <button
           onClick={toggleSidebar}
