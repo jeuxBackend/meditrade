@@ -1,134 +1,47 @@
-import React, { useState } from "react";
-import closeicon from "./Assets/closeicon.png";
-import bpimg1 from "./Assets/bpimg1.png";
-import bpimg2 from "./Assets/bpimg2.png";
-import bpimg3 from "./Assets/bpimg3.png";
-import bpimg4 from "./Assets/bpimg4.png";
-import bpimg5 from "./Assets/bpimg5.png";
+import React from "react";
+import { CiSearch } from "react-icons/ci";
+import { IoCaretDownOutline } from "react-icons/io5";
 import bpimg6 from "./Assets/image6.png";
-import { BiMinus } from "react-icons/bi";
-import { PiPlus } from "react-icons/pi";
-import cart from "./Assets/cartimg.png";
 import cartplus from "./Assets/cart-plus.png";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
-function MyOrderProductDetails() {
-  const [count, setCount] = useState(3);
-  const navigate = useNavigate();
-
-  const handleMinus = () => {
-    if (count > 0) {
-      setCount(count - 1);
-    }
-  };
-
-  const handlePlus = () => {
-    setCount(count + 1);
-  };
-
+function SeeMoreProduct() {
   return (
-    <div className=" px-3 md:px-7 py-4 mt-4">
-      <div
-        className="flex items-center gap-3 cursor-pointer"
-        onClick={() => navigate(-1)}
-      >
-        <img src={closeicon} alt="" className="h-8 md:h-9" />
-        <p className="text-xl md:text-2xl font-semibold">Product Details</p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5 pb-4 border-b-2 border-dashed border-[#a3a3a3]">
+    <div className="px-3 md:px-9 py-4 mt-[-80px]">
+      <div className="w-full relative bg-white rounded-xl ">
         <div>
-          <div>
-            <img src={bpimg1} alt="" className="" />
-          </div>
-          <div className="grid grid-cols-4 gap-1 md:gap-3 mt-2">
-            <img src={bpimg2} alt="" className=" rounded-xl" />
-            <img src={bpimg3} alt="" className="  rounded-xl" />
-            <img src={bpimg4} alt="" className=" rounded-xl" />
-            <div className="relative">
-              <img src={bpimg5} alt="" className=" rounded-xl" />
-              <p className="absolute  top-[38%] right-[40%] xl:top-[45%] xl:right-[45%] lg:text-2xl text-white rounded-full ">
-                +3
-              </p>
-            </div>
-          </div>
+          <input
+            type="text"
+            placeholder="Search by medicine, category, or brand..."
+            className=" placeholder:text-[#333333] font-semibold  py-4 px-12 w-full outline-0 "
+          />
+          <CiSearch className="absolute top-3.5 left-3 text-3xl text-[#333333] " />
         </div>
-        <div>
-          <p className="text-[#8f8f8f] font-semibold">Product Title</p>
-          <p className="font-semibold text-[#3a2d2d] text-3xl">
-            Electrocardiography, Model 14032
-          </p>
-          <div className="py-3 grid grid-cols-2 items-center border-b-2 border-dashed border-[#a3a3a3] pb-5">
-            <p className="text-[#8f8f8f]">
-              Price:{" "}
-              <span className="text-[#333333] font-semibold text-2xl">
-                $100.00
-              </span>
-            </p>
-            <p className="text-[#8f8f8f]">1,238 Sold</p>
+        <div className="py-3 px-4 grid grid-cols-5 gap-3">
+          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer  px-3 rounded-lg ">
+            <p className="text-[#333333] font-medium">Country of Origin</p>
+            <IoCaretDownOutline className="text-[#777e90]" />
           </div>
-
-          <div className="py-5">
-            <div className="grid grid-cols-2">
-              <div>
-                <p className="text-[#8f8f8f]">Brand:</p>
-                <p className="font-semibold text-[#333333] text-2xl">Rossmax</p>
-              </div>
-              <div>
-                <p className="text-[#8f8f8f]">Country of Origin:</p>
-                <p className="font-semibold text-[#333333] text-2xl">America</p>
-              </div>
-            </div>
-            <div className="py-4">
-              <p className="text-[#8f8f8f]">Technical sheet:</p>
-              <p className="text-[#6a38ff] font-[700] text-2xl">PDF download</p>
-            </div>
-            <div>
-              <p className="font-bold py-2 text-[#292929] text-xl">
-                Description:
-              </p>
-              <p className="text-[#666666]">
-                Lorem ipsum dolor sit amet, consetetur sadi pscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore magna.
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore magna.
-                consetetur sadi pscing elitr, sed diam nonumy eirmod tempor
-                invidunt ut labore et dolore magna Lorem ipsum dolor sit amet,
-                consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                invidunt ut labore et dolore magna. consetetur sadi pscing
-                elitr.<span className="font-medium"> See More....</span>
-              </p>
-            </div>
-            <div className="flex flex-wrap sm:flex-nowrap items-center justify-center gap-7 mt-5">
-              <div className="flex items-center gap-2">
-                <div
-                  onClick={handleMinus}
-                  className="border border-[#a3a3a3] py-2 px-2 rounded-sm cursor-pointer"
-                >
-                  <BiMinus className="text-lg font-semibold" />
-                </div>
-                <p className="font-semibold text-xl">{count}</p>
-
-                <div
-                  onClick={handlePlus}
-                  className="border border-[#a3a3a3] py-2 px-2 rounded-sm cursor-pointer"
-                >
-                  <PiPlus className="text-lg font-semibold" />
-                </div>
-              </div>
-
-              <Link to="/MyCart">
-                <div className="flex cursor-pointer flex-nowrap items-center justify-center bg-white py-2 px-20 gap-2 rounded-md">
-                  <img src={cart} alt="" className="h-8" />
-                  <p className="font-semibold text-nowrap">Add To Cart</p>
-                </div>
-              </Link>
-            </div>
+          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer  px-3 rounded-lg ">
+            <p className="text-[#333333] font-medium">Brand</p>
+            <IoCaretDownOutline className="text-[#777e90]" />
+          </div>
+          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer  px-3 rounded-lg ">
+            <p className="text-[#333333] font-medium">Price Range</p>
+            <IoCaretDownOutline className="text-[#777e90]" />
+          </div>
+          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer  px-3 rounded-lg ">
+            <p className="text-[#333333] font-medium">Availability</p>
+            <IoCaretDownOutline className="text-[#777e90]" />
+          </div>
+          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer px-3 rounded-lg ">
+            <p className="text-[#333333] font-medium">Company</p>
+            <IoCaretDownOutline className="text-[#777e90]" />
           </div>
         </div>
       </div>
       <div>
-        <p className="text-2xl font-semibold py-5">Related Products</p>
+        <p className="text-2xl font-semibold py-5">BP Apparatus</p>
         <div className="space-y-2">
           <div className="bg-white flex flex-col lg:flex-row items-start gap-3 lg:gap-6 py-3 px-3 lg:px-4 rounded-lg">
             <img
@@ -172,7 +85,7 @@ function MyOrderProductDetails() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <Link to="/MyCart">
+                  <Link to="/MyProductDetails">
                     <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
                       <img src={cartplus} alt="" className="h-5 " />
                       <p className="text-nowrap text-sm lg:text-base">
@@ -229,7 +142,7 @@ function MyOrderProductDetails() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <Link to="/MyCart">
+                  <Link to="/MyProductDetails">
                     <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
                       <img src={cartplus} alt="" className="h-5 " />
                       <p className="text-nowrap text-sm lg:text-base">
@@ -286,7 +199,7 @@ function MyOrderProductDetails() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <Link to="/MyCart">
+                  <Link to="/MyProductDetails">
                     <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
                       <img src={cartplus} alt="" className="h-5 " />
                       <p className="text-nowrap text-sm lg:text-base">
@@ -343,7 +256,7 @@ function MyOrderProductDetails() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <Link to="/MyCart">
+                  <Link to="/MyProductDetails">
                     <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
                       <img src={cartplus} alt="" className="h-5 " />
                       <p className="text-nowrap text-sm lg:text-base">
@@ -400,7 +313,7 @@ function MyOrderProductDetails() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <Link to="/MyCart">
+                  <Link to="/MyProductDetails">
                     <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
                       <img src={cartplus} alt="" className="h-5 " />
                       <p className="text-nowrap text-sm lg:text-base">
@@ -417,14 +330,8 @@ function MyOrderProductDetails() {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center mt-5 w-full">
-        <button className="border-[#d6dbe8] border py-3 text-center w-[50%] lg:w-[20%] text-[#333333] rounded-full font-medium cursor-pointer">
-          {" "}
-          See more
-        </button>
-      </div>
     </div>
   );
 }
 
-export default MyOrderProductDetails;
+export default SeeMoreProduct;
