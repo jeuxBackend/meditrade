@@ -269,7 +269,9 @@ const AdminDashboard = () => {
                   Recent orders
                 </p>
                 <p className="font-[700] text-[30px]">800</p>
-                <img src={ArrowImg} className="w-7 absolute top-3 right-4" />
+                <Link to="/RecentOrder">
+                  <img src={ArrowImg} className="w-7 absolute top-3 right-4" />
+                </Link>
               </div>
             </div>
           </div>

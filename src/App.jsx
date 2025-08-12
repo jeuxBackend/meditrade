@@ -21,9 +21,9 @@ import AdminSettings from "./Admin/pages/AdminSettings/AdminSettings";
 import DeliveryInformation from "./Website/Pages/Home/components/DeliveryInformation/DeliveryInformation";
 import PaymentMethod from "./Website/Pages/Home/components/PaymentMethod/PaymentMethod";
 import SelectCard from "./Website/Pages/Home/components/SelectCard/SelectCard";
+
 import TopSellingProducts from "./Admin/pages/AdminDashBoard/Components/TopSellingProducts/TopSellingProducts";
-// import SeeMoreProduct from "./Website/Pages/Home/components/SeeMoreProduct/SeeMoreProduct";
-// import HomeProductInformation from "./Website/Pages/Home/components/HomeProductInformation/HomeProductInformation";
+import RecentOrders from "./Admin/pages/AdminDashBoard/Components/RecentOrders/RecentOrders";
 
 function App() {
   return (
@@ -49,6 +49,7 @@ function App() {
         <Route element={<AdminLayout />}>
           <Route path="/AdminDashBoard" element={<AdminDashBoard />} />
           <Route path="/TopSellingProducts" element={<TopSellingProducts />} />
+          <Route path="/RecentOrder" element={<RecentOrders/>} />
           <Route path="/AdminUsers" element={<AdminUsers />} />
           <Route
             path="/AdminProductManagement"
