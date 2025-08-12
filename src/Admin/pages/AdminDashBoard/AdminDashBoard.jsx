@@ -48,7 +48,7 @@ const AdminDashboard = () => {
                 className="flex flex-col items-center justify-center"
                 style={{
                   borderLeft: "3px solid",
-                  borderRight: "3px solid",
+
                   borderImage:
                     "linear-gradient(to bottom, transparent, #e4e4e4, transparent) 4",
                 }}
@@ -60,7 +60,15 @@ const AdminDashboard = () => {
               </div>
 
               {/* Blocked Users */}
-              <div className="flex flex-col items-center justify-center">
+              <div
+                className="flex flex-col items-center justify-center"
+                style={{
+                  borderLeft: "3px solid",
+
+                  borderImage:
+                    "linear-gradient(to bottom, transparent, #e4e4e4, transparent) 4",
+                }}
+              >
                 <p className="text-[#00427E] text-[20px] font-[500]">
                   Blocked Users
                 </p>
@@ -82,7 +90,7 @@ const AdminDashboard = () => {
                 className="flex flex-col items-center justify-center"
                 style={{
                   borderLeft: "3px solid",
-                  borderRight: "3px solid",
+
                   borderImage:
                     "linear-gradient(to bottom, transparent, #e4e4e4, transparent) 4",
                 }}
@@ -94,7 +102,15 @@ const AdminDashboard = () => {
               </div>
 
               {/* Blocked Users */}
-              <div className="flex flex-col items-center justify-center">
+              <div
+                className="flex flex-col items-center justify-center"
+                style={{
+                  borderLeft: "3px solid",
+
+                  borderImage:
+                    "linear-gradient(to bottom, transparent, #e4e4e4, transparent) 4",
+                }}
+              >
                 <p className="text-[#00427E] text-[20px] font-[500]">
                   Total Laboratories
                 </p>
@@ -151,7 +167,7 @@ const AdminDashboard = () => {
                 className="flex flex-col items-center justify-center"
                 style={{
                   borderLeft: "3px solid",
-                  borderRight: "3px solid",
+
                   borderImage:
                     "linear-gradient(to bottom, transparent, #e4e4e4, transparent) 4",
                 }}
@@ -163,7 +179,15 @@ const AdminDashboard = () => {
               </div>
 
               {/* Blocked Users */}
-              <div className="flex flex-col items-center justify-center">
+              <div
+                className="flex flex-col items-center justify-center"
+                style={{
+                  borderLeft: "3px solid",
+
+                  borderImage:
+                    "linear-gradient(to bottom, transparent, #e4e4e4, transparent) 4",
+                }}
+              >
                 <p className="text-[#00427E] text-[20px] font-[500]">
                   Pending Orders
                 </p>
@@ -185,7 +209,7 @@ const AdminDashboard = () => {
                 className="flex flex-col items-center justify-center"
                 style={{
                   borderLeft: "3px solid",
-                  borderRight: "3px solid",
+
                   borderImage:
                     "linear-gradient(to bottom, transparent, #e4e4e4, transparent) 4",
                 }}
@@ -197,7 +221,15 @@ const AdminDashboard = () => {
               </div>
 
               {/* Blocked Users */}
-              <div className="flex flex-col items-center justify-center">
+              <div
+                className="flex flex-col items-center justify-center"
+                style={{
+                  borderLeft: "3px solid",
+
+                  borderImage:
+                    "linear-gradient(to bottom, transparent, #e4e4e4, transparent) 4",
+                }}
+              >
                 <p className="text-[#00427E] text-[20px] font-[500]">
                   Out for delivery
                 </p>
