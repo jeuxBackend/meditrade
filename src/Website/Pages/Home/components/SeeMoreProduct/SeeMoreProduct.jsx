@@ -1,45 +1,59 @@
-import React from "react";
+import React, {useState} from "react";
 import { CiSearch } from "react-icons/ci";
 import { IoCaretDownOutline } from "react-icons/io5";
 import bpimg6 from "./Assets/image6.png";
 import cartplus from "./Assets/cart-plus.png";
 import { Link } from "react-router-dom";
+import filter from "./Assets/filter.png";
 
 function SeeMoreProduct() {
+  const [showFilters, setShowFilters] = useState(false);
   return (
     <div className="px-3 md:px-9 py-4 mt-[-80px]">
-      <div className="w-full relative bg-white rounded-xl ">
-        <div>
+       <div className="w-full relative bg-white rounded-xl ">
+      <div>
+        <div >
           <input
             type="text"
             placeholder="Search by medicine, category, or brand..."
-            className=" placeholder:text-[#333333] font-semibold  py-4 px-12 w-full outline-0 "
+            className="placeholder:text-[#333333] font-semibold py-4 px-12 w-full outline-0"
           />
-          <CiSearch className="absolute top-3.5 left-3 text-3xl text-[#333333] " />
+          <CiSearch className="absolute top-3 left-3 text-3xl text-[#333333]" />
         </div>
-        <div className="py-3 px-4 grid grid-cols-5 gap-3">
-          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer  px-3 rounded-lg ">
+
+        <div
+          className="bg-[#ebf1ff] py-2 px-2 rounded-lg absolute top-1 right-2 cursor-pointer"
+          onClick={() => setShowFilters(!showFilters)}
+        >
+          <img src={filter} alt="" className="w-8 h-8" />
+        </div>
+      </div>
+
+      {showFilters && (
+        <div className="py-3 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer px-3 rounded-lg">
             <p className="text-[#333333] font-medium">Country of Origin</p>
             <IoCaretDownOutline className="text-[#777e90]" />
           </div>
-          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer  px-3 rounded-lg ">
+          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer px-3 rounded-lg">
             <p className="text-[#333333] font-medium">Brand</p>
             <IoCaretDownOutline className="text-[#777e90]" />
           </div>
-          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer  px-3 rounded-lg ">
+          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer px-3 rounded-lg">
             <p className="text-[#333333] font-medium">Price Range</p>
             <IoCaretDownOutline className="text-[#777e90]" />
           </div>
-          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer  px-3 rounded-lg ">
+          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer px-3 rounded-lg">
             <p className="text-[#333333] font-medium">Availability</p>
             <IoCaretDownOutline className="text-[#777e90]" />
           </div>
-          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer px-3 rounded-lg ">
+          <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer px-3 rounded-lg">
             <p className="text-[#333333] font-medium">Company</p>
             <IoCaretDownOutline className="text-[#777e90]" />
           </div>
         </div>
-      </div>
+      )}
+    </div>
       <div>
         <p className="text-2xl font-semibold py-5">BP Apparatus</p>
         <div className="space-y-2">

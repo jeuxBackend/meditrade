@@ -22,8 +22,8 @@ import DeliveryInformation from "./Website/Pages/Home/components/DeliveryInforma
 import PaymentMethod from "./Website/Pages/Home/components/PaymentMethod/PaymentMethod";
 import SelectCard from "./Website/Pages/Home/components/SelectCard/SelectCard";
 import TopSellingProducts from "./Admin/pages/AdminDashBoard/Components/TopSellingProducts/TopSellingProducts";
-import SeeMoreProduct from "./Website/Pages/Home/components/SeeMoreProduct/SeeMoreProduct";
-import HomeProductInformation from "./Website/Pages/Home/components/HomeProductInformation/HomeProductInformation";
+// import SeeMoreProduct from "./Website/Pages/Home/components/SeeMoreProduct/SeeMoreProduct";
+// import HomeProductInformation from "./Website/Pages/Home/components/HomeProductInformation/HomeProductInformation";
 
 function App() {
   return (
