@@ -83,6 +83,7 @@ const AdminSidebar = () => {
   const pageConfigs = {
     "/AdminDashboard": { heading: "Dashboard" },
     "/TopSellingProducts": { heading: "To Selling Products" },
+    "/RecentOrder": { heading: "Recent orders" },
     "/AdminUsers": { heading: "Users" },
     "/AdminProductManagement": { heading: "Product Management" },
     "/AdminBrand": { heading: "Brand" },
@@ -91,7 +92,7 @@ const AdminSidebar = () => {
     "/AdminSubAdmins": { heading: "Sub-Admins" },
     "/AdminSettings": { heading: "Settings" },
   };
-  const backEnabledPaths = ["/TopSellingProducts"];
+  const backEnabledPaths = ["/TopSellingProducts","/RecentOrder"];
   const isBackButtonAllowed = backEnabledPaths.some((path) =>
     location.pathname.startsWith(path)
   );
