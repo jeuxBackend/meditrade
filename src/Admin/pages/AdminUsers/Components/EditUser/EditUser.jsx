@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { RiArrowDownSFill } from "react-icons/ri";
 
 import uploadicon from "../Assets/uploadicon.png";
 import profileimage from "../Assets/image1.png";
@@ -114,7 +114,67 @@ const EditUser = () => {
       setProfileImage(imageURL);
     }
   };
+// state 
+const [showStateList, setShowStateList] = useState(false);
+  const [selectedState, setSelectedState] = useState("");
 
+  const states = [
+    "Alabama",
+    "Alaska",
+    "Arizona",
+    "Arkansas",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "Delaware",
+    "Florida",
+    "Georgia",
+    "Hawaii",
+    "Idaho",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Maryland",
+    "Massachusetts",
+    "Michigan",
+    "Minnesota",
+    "Mississippi",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "Nevada",
+    "New Hampshire",
+    "New Jersey",
+    "New Mexico",
+    "New York",
+    "North Carolina",
+    "North Dakota",
+    "Ohio",
+    "Oklahoma",
+    "Oregon",
+    "Pennsylvania",
+    "Rhode Island",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "Texas",
+    "Utah",
+    "Vermont",
+    "Virginia",
+    "Washington",
+    "West Virginia",
+    "Wisconsin",
+    "Wyoming"
+  ];
+
+  const handleSelectStateList = (state) => {
+    setSelectedState(state);
+    setShowStateList(false);
+  };
   return (
     <div className="bg-[#fafafa] lg:ml-[295px]">
       <style>{` ::-webkit-scrollbar { display: none;}`}</style>
@@ -201,21 +261,14 @@ const EditUser = () => {
               <span className={selectedCity ? "text-black" : "text-gray-500"}>
                 {selectedCity || "Select your city"}
               </span>
-              <svg
+              <RiArrowDownSFill 
                 className={`w-5 h-5 text-gray-600 transition-transform duration-200 ${
                   isOpen ? "rotate-180" : ""
                 }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              
+              />
+               
+            
             </div>
 
             {/* Dropdown Menu */}
@@ -333,8 +386,9 @@ const EditUser = () => {
         onClick={() => setIsCountryOpen(!isCountryOpen)}
       >
         {selectedCountryValue || "Select a country"}
-        <ChevronDown
-          className={`transition-transform duration-300 ${
+        
+        <RiArrowDownSFill 
+          className={`transition-transform text-xl text-[#777e90] duration-300 ${
             isCountryOpen ? "rotate-180" : ""
           }`}
         />
@@ -366,6 +420,64 @@ const EditUser = () => {
         </div>
       )}
     </div>
+   {/* User Role */}
+   <div>
+            <label className="text-[18px] font-[400] text-black">User Role</label>
+            <input
+              type="text"
+              placeholder="Doctor"
+              onChange={(e) =>
+                setUserData({ ...userData, name: e.target.value })
+              }
+              className="w-full mt-1 px-4 py-3 outline-none  rounded-xl bg-[#ebf1ff] "
+            />
+          </div>
+          {/* State/Province */}
+           <div className="relative">
+      <label className="text-[18px] font-[400] text-black">
+        State/Province
+      </label>
+
+      <div
+        onClick={() => setShowStateList(!showStateList)}
+        className="w-full mt-1 px-4 py-3 rounded-xl bg-[#ebf1ff] flex items-center justify-between cursor-pointer"
+      >
+        <span className={selectedState ? "text-black" : "text-gray-500"}>
+          {selectedState || "Select State/Province"}
+        </span>
+        <RiArrowDownSFill 
+          className={`transition-transform duration-300 text-xl text-[#777e90] ${
+            showStateList ? "rotate-180" : ""
+          }`}
+        />
+      </div>
+
+      {showStateList && (
+        <div className="absolute w-full mt-1 bg-white rounded-xl shadow-lg z-10 max-h-60 overflow-y-auto">
+          {states.map((state, index) => (
+            <div
+              key={index}
+              onClick={() => handleSelectStateList(state)}
+              className="px-4 py-2 hover:bg-[#ebf1ff] cursor-pointer"
+            >
+              {state}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+    {/* Full Address */}
+     <div>
+            <label className="text-[18px] font-[400] text-black">Full Address</label>
+            <input
+              type="text"
+              placeholder="4517 Washington Ave. Manchester, Kentucky 39495"
+              onChange={(e) =>
+                setUserData({ ...userData, name: e.target.value })
+              }
+              className="w-full mt-1 px-4 py-3 outline-none  rounded-xl bg-[#ebf1ff] "
+            />
+          </div>
         </div>
 
         {/* Footer Buttons */}
