@@ -1,5 +1,16 @@
 import React from "react";
+import { motion } from "framer-motion";
 import ProductImg from "../Assets/ProductImg.png";
+
+const fadeInLeftDown = (delay = 0) => ({
+  hidden: { opacity: 0, x: -50, y: -30 },
+  show: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: { duration: 0.6, delay, ease: "easeOut" },
+  },
+});
 
 const TopSellingProducts = () => {
   const products = [
@@ -34,10 +45,13 @@ const TopSellingProducts = () => {
 
   return (
     <div className="bg-[#fafafa] lg:ml-[295px]">
-      <div className="md:p-6 p-4">
+      <div className="md:p-6 p-3">
         {products.map((product, index) => (
-          <div
+          <motion.div
             key={product.id}
+            variants={fadeInLeftDown(index * 0.15)}
+            initial="hidden"
+            animate="show"
             className={`bg-white md:p-4 p-2 rounded-lg flex md:flex-nowrap flex-wrap gap-4 ${
               index !== 0 ? "my-4" : ""
             }`}
@@ -79,13 +93,13 @@ const TopSellingProducts = () => {
             </div>
 
             {/* Right side (fixed width) */}
-            <div className="md:w-[120px] w-full flex-shrink-0 flex flex-col justify-center ">
+            <div className="md:w-[120px] w-full flex-shrink-0 flex flex-col justify-center">
               <p className="text-[20px] font-[400]">Sold</p>
               <p className="text-[#00427E] text-[28px] font-[500]">
                 {product.sold}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

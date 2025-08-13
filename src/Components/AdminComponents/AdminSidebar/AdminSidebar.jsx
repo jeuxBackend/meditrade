@@ -84,7 +84,7 @@ const AdminSidebar = () => {
     "/AdminDashboard": { heading: "Dashboard" },
     "/TopSellingProducts": { heading: "To Selling Products" },
     "/RecentOrder": { heading: "Recent orders" },
-    "/AdminUsers": { heading: "Users" },
+    "/AdminUsers": { heading: "User Management" },
     "/AdminProductManagement": { heading: "Product Management" },
     "/AdminBrand": { heading: "Brand" },
     "/AdminQuoteRequests": { heading: "Quote Requests" },
