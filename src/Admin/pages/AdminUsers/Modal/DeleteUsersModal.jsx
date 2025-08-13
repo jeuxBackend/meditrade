@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import Close from "../Assets/close-icon.png";
+
 import { motion } from "framer-motion";
-import del from "../Assets/del.png";
-import { FaTrash } from "react-icons/fa";
+import delImg from "../Assets/delImg.png";
 
 function DeleteUsersModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -22,26 +21,27 @@ function DeleteUsersModal({ isOpen, onClose }) {
           animate={{ scale: 1 }}
           exit={{ scale: 0.8 }}
           transition={{ duration: 0.3 }}
-          className="bg-[#F4F4F4] rounded-xl w-[98%] sm:w-[30rem] p-6 flex flex-col items-center justify-center gap-2"
+          className="bg-[#ffffff] rounded-xl w-[98%] sm:w-[28rem] p-6 flex flex-col items-center justify-center gap-2"
         >
           <div className="mb-3">
-            <FaTrash className="text-red-500 text-[60px]" />
+            <img src={delImg} className="w-20" />
           </div>
 
-          <h2 className="text-[20px] font-semibold">Delete</h2>
+          <h2 className="text-[20px] font-semibold">Delete User</h2>
           <p className="text-[#85909b]  text-center font-medium">
-            Are you sure you want to delete?
+            Are you sure to unblock this <br className="md:block hidden" />{" "}
+            user?
           </p>
 
-          <div className="flex gap-3 mt-3 w-full">
+          <div className="flex gap-3 flex-col mt-3 w-full">
+            <button className="font-medium text-[18px] py-4 px-6 w-full  bg-[#f3f3f3] rounded-md cursor-pointer">
+              Delete
+            </button>
             <button
-              className="border-2 border-[#e6e7e9] font-medium text-[18px] rounded-md py-2 px-6 w-1/2 cursor-pointer"
+              className="border-2 border-[#e6e7e9] font-medium text-[18px] rounded-md py-4 px-6 w-full cursor-pointer"
               onClick={onClose}
             >
               Cancel
-            </button>
-            <button className="font-medium text-[18px] py-2 px-6 w-1/2 text-white bg-[#fb2c36] rounded-md cursor-pointer">
-              Delete
             </button>
           </div>
         </motion.div>

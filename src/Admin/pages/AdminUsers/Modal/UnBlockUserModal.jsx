@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import UnBlock from "../Assets/UnBlockImg.png";
 import { FaTrash } from "react-icons/fa";
 
-function UnBlockUserModal({ isOpen, onClose,onConfirm }) {
+function UnBlockUserModal({ isOpen, onClose, onConfirm }) {
   if (!isOpen) return null;
 
   return (
@@ -25,20 +25,23 @@ function UnBlockUserModal({ isOpen, onClose,onConfirm }) {
           className="bg-[#F4F4F4] rounded-xl w-[98%] sm:w-[25rem] p-6 flex flex-col items-center justify-center gap-2"
         >
           <div className="mb-3">
-           <img  src={UnBlock} className="w-20"/>
+            <img src={UnBlock} className="w-20" />
           </div>
 
           <h2 className="text-[20px] font-semibold">UnBlock User</h2>
           <p className="text-[#85909b]  text-center font-medium">
-          Are you sure to unblock this<br className="md:block hidden"/> user?
+            Are you sure to unblock this
+            <br className="md:block hidden" /> user?
           </p>
 
           <div className="flex flex-col justify-center items-center gap-3 mt-3 w-full">
-          
-            <button  onClick={onConfirm} className="font-medium text-[18px] py-3 px-6 w-full  bg-[#e8e8e8] rounded-md cursor-pointer">
-             UnBlock
+            <button
+              onClick={onConfirm}
+              className="font-medium text-[18px] py-3 px-6 w-full  bg-[#e8e8e8] rounded-md cursor-pointer"
+            >
+              UnBlock
             </button>
-              <button
+            <button
               className=" font-medium text-[18px] text-[#978b8f] rounded-md py-2 px-6  cursor-pointer"
               onClick={onClose}
             >

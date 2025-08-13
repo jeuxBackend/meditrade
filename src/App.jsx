@@ -24,6 +24,8 @@ import SelectCard from "./Website/Pages/Home/components/SelectCard/SelectCard";
 
 import TopSellingProducts from "./Admin/pages/AdminDashBoard/Components/TopSellingProducts/TopSellingProducts";
 import RecentOrders from "./Admin/pages/AdminDashBoard/Components/RecentOrders/RecentOrders";
+import UserDetails from "./Admin/pages/AdminUsers/Components/UserDetails/UserDetails";
+import EditUser from "./Admin/pages/AdminUsers/Components/EditUser/EditUser";
 
 function App() {
   return (
@@ -51,6 +53,8 @@ function App() {
           <Route path="/TopSellingProducts" element={<TopSellingProducts />} />
           <Route path="/RecentOrder" element={<RecentOrders/>} />
           <Route path="/AdminUsers" element={<AdminUsers />} />
+          <Route path="/UserDetails" element={<UserDetails />} />
+          <Route path="/EditUser" element={<EditUser />} />
           <Route
             path="/AdminProductManagement"
             element={<AdminProductManagement />}
