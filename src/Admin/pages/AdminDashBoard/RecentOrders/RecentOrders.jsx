@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ProductImg from "../Assets/ProductImg.png";
-import OrderImg from "../Assets/OrderImg.png";
+import OrderUserImg from "../Assets/OrderUserImg.png";
 import ActiveImg from "../Assets/ActiveImg.png";
 import UnActiveImg from "../Assets/UnActiveImg.png";
 import DocumentImg from "../Assets/DocumentImg.png";
@@ -59,7 +59,7 @@ const RecentOrders = () => {
               <div className="flex flex-wrap items-center gap-4">
                 <div className="flex items-center gap-3">
                   <img
-                    src={OrderImg}
+                    src={OrderUserImg}
                     alt="User"
                     className="w-18 h-18 rounded-full object-cover"
                   />

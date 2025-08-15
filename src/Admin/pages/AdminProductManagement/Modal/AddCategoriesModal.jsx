@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import AddIconImg from "../Assets/AddIconImg.png";
 import arrowicon from "../Assets/BackArrowImg.png";
 
-const CategoriesModal = ({ openModal, closeModal }) => {
+const AddCategoriesModal = ({ openModal, closeModal }) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   if (!openModal) return null;
@@ -107,9 +107,9 @@ const CategoriesModal = ({ openModal, closeModal }) => {
   );
 };
 
-CategoriesModal.propTypes = {
+AddCategoriesModal.propTypes = {
   openModal: PropTypes.bool.isRequired,
   closeModal: PropTypes.func.isRequired,
 };
 
-export default CategoriesModal;
+export default AddCategoriesModal;

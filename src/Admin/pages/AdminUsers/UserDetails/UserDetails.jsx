@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import UserImg from "../Assets/image1.png";
 import { Link } from "react-router-dom";
-import DeleteUsersModal from "../../Modal/DeleteUsersModal";
+import DeleteUsersModal from "../Modal/DeleteUsersModal";
 
 const UserDetails = () => {
   const [deleteUsersModal, setDeleteUsersModal] = useState(false);

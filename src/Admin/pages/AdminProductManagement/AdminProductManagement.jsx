@@ -16,7 +16,8 @@ import Categories10 from "./Assets/CategoriesImg 10.png";
 import MenuImg from "./Assets/MenuImg.png";
 import EditImg from "./Assets/EditImg.png";
 import DeleteImg from "./Assets/DeleteImg.png";
-import CategoriesModal from "./Modal/CategoriesModal";
+import AddCategoriesModal from './Modal/AddCategoriesModal'
+
 
 const AdminProductManagement = () => {
   const [AddCategoriesModal, setAddCategoriesModal] = useState(false);
@@ -64,7 +65,7 @@ const AdminProductManagement = () => {
 
   return (
     <div className="bg-[#fafafa] lg:ml-[295px]">
-      <CategoriesModal openModal={AddCategoriesModal} closeModal={closeModal} />
+      <AddCategoriesModal openModal={AddCategoriesModal} closeModal={closeModal} />
           <style>{`::-webkit-scrollbar { display: none; }`}</style>
       <div className="md:p-6 p-4">
         {/* Search and Add Button */}
