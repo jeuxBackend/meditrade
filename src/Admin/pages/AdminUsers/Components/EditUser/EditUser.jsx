@@ -6,7 +6,7 @@ import uploadicon from "../Assets/uploadicon.png";
 import profileimage from "../Assets/image1.png";
 
 const EditUser = () => {
-   const [isCountryOpen, setIsCountryOpen] = useState(false);
+  const [isCountryOpen, setIsCountryOpen] = useState(false);
   const [selectedCountryValue, setSelectedCountryValue] = useState("");
   const [countrySearchValue, setCountrySearchValue] = useState("");
 
@@ -114,8 +114,8 @@ const EditUser = () => {
       setProfileImage(imageURL);
     }
   };
-// state 
-const [showStateList, setShowStateList] = useState(false);
+  // state
+  const [showStateList, setShowStateList] = useState(false);
   const [selectedState, setSelectedState] = useState("");
 
   const states = [
@@ -168,7 +168,7 @@ const [showStateList, setShowStateList] = useState(false);
     "Washington",
     "West Virginia",
     "Wisconsin",
-    "Wyoming"
+    "Wyoming",
   ];
 
   const handleSelectStateList = (state) => {
@@ -218,7 +218,9 @@ const [showStateList, setShowStateList] = useState(false);
         {/* Form Fields */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 gap-x-16 mt-10">
           <div>
-            <label className="text-[18px] font-[400] text-black">Full Name</label>
+            <label className="text-[18px] font-[400] text-black">
+              Full Name
+            </label>
             <input
               type="text"
               placeholder="Romas Almas"
@@ -240,7 +242,9 @@ const [showStateList, setShowStateList] = useState(false);
             />
           </div>
           <div>
-            <label className="text-[18px] font-[400] text-black">Password</label>
+            <label className="text-[18px] font-[400] text-black">
+              Password
+            </label>
             <input
               type="text"
               placeholder="*********"
@@ -248,7 +252,6 @@ const [showStateList, setShowStateList] = useState(false);
             />
           </div>
 
-          
           {/* City  */}
           <div className="relative w-full">
             <label className="text-[18px] font-[400] text-black">City</label>
@@ -261,14 +264,11 @@ const [showStateList, setShowStateList] = useState(false);
               <span className={selectedCity ? "text-black" : "text-gray-500"}>
                 {selectedCity || "Select your city"}
               </span>
-              <RiArrowDownSFill 
+              <RiArrowDownSFill
                 className={`w-5 h-5 text-gray-600 transition-transform duration-200 ${
                   isOpen ? "rotate-180" : ""
                 }`}
-              
               />
-               
-            
             </div>
 
             {/* Dropdown Menu */}
@@ -304,8 +304,8 @@ const [showStateList, setShowStateList] = useState(false);
             )}
           </div>
           {/* Zip Code  */}
-          
-{/* Phone Number */}
+
+          {/* Phone Number */}
           <div className="w-full">
             <label className="text-[18px] font-[400]">Phone Number</label>
             <div className="w-full flex">
@@ -369,8 +369,7 @@ const [showStateList, setShowStateList] = useState(false);
             </div>
           </div>
 
-          
- <div>
+          <div>
             <label className="text-lg semi-bold text-black">Zip Code</label>
             <input
               type="text"
@@ -380,49 +379,53 @@ const [showStateList, setShowStateList] = useState(false);
           </div>
           {/* Country  */}
           <div className="relative w-full">
-      <label className="text-[18px] font-[400] text-black">Country</label>
-      <div
-        className="w-full mt-1 px-4 py-3 bg-[#ebf1ff] rounded-xl cursor-pointer flex justify-between items-center"
-        onClick={() => setIsCountryOpen(!isCountryOpen)}
-      >
-        {selectedCountryValue || "Select a country"}
-        
-        <RiArrowDownSFill 
-          className={`transition-transform text-xl text-[#777e90] duration-300 ${
-            isCountryOpen ? "rotate-180" : ""
-          }`}
-        />
-      </div>
+            <label className="text-[18px] font-[400] text-black">Country</label>
+            <div
+              className="w-full mt-1 px-4 py-3 bg-[#ebf1ff] rounded-xl cursor-pointer flex justify-between items-center"
+              onClick={() => setIsCountryOpen(!isCountryOpen)}
+            >
+              {selectedCountryValue || "Select a country"}
 
-      {isCountryOpen && (
-        <div className="absolute mt-1 w-full bg-white rounded-xl shadow-lg z-10 max-h-60 overflow-y-auto">
-          <input
-            type="text"
-            placeholder="Search country..."
-            className="w-full px-4 py-2 border-b outline-none"
-            value={countrySearchValue}
-            onChange={(e) => setCountrySearchValue(e.target.value)}
-            autoFocus
-          />
-          {filteredCountries.length > 0 ? (
-            filteredCountries.map((country, index) => (
-              <div
-                key={index}
-                className="px-4 py-2 hover:bg-blue-100 cursor-pointer"
-                onClick={() => handleCountrySelectName(country)}
-              >
-                {country}
+              <RiArrowDownSFill
+                className={`transition-transform text-xl text-[#777e90] duration-300 ${
+                  isCountryOpen ? "rotate-180" : ""
+                }`}
+              />
+            </div>
+
+            {isCountryOpen && (
+              <div className="absolute mt-1 w-full bg-white rounded-xl shadow-lg z-10 max-h-60 overflow-y-auto">
+                <input
+                  type="text"
+                  placeholder="Search country..."
+                  className="w-full px-4 py-2 border-b outline-none"
+                  value={countrySearchValue}
+                  onChange={(e) => setCountrySearchValue(e.target.value)}
+                  autoFocus
+                />
+                {filteredCountries.length > 0 ? (
+                  filteredCountries.map((country, index) => (
+                    <div
+                      key={index}
+                      className="px-4 py-2 hover:bg-blue-100 cursor-pointer"
+                      onClick={() => handleCountrySelectName(country)}
+                    >
+                      {country}
+                    </div>
+                  ))
+                ) : (
+                  <div className="px-4 py-2 text-gray-500">
+                    No countries found
+                  </div>
+                )}
               </div>
-            ))
-          ) : (
-            <div className="px-4 py-2 text-gray-500">No countries found</div>
-          )}
-        </div>
-      )}
-    </div>
-   {/* User Role */}
-   <div>
-            <label className="text-[18px] font-[400] text-black">User Role</label>
+            )}
+          </div>
+          {/* User Role */}
+          <div>
+            <label className="text-[18px] font-[400] text-black">
+              User Role
+            </label>
             <input
               type="text"
               placeholder="Doctor"
@@ -433,42 +436,44 @@ const [showStateList, setShowStateList] = useState(false);
             />
           </div>
           {/* State/Province */}
-           <div className="relative">
-      <label className="text-[18px] font-[400] text-black">
-        State/Province
-      </label>
+          <div className="relative">
+            <label className="text-[18px] font-[400] text-black">
+              State/Province
+            </label>
 
-      <div
-        onClick={() => setShowStateList(!showStateList)}
-        className="w-full mt-1 px-4 py-3 rounded-xl bg-[#ebf1ff] flex items-center justify-between cursor-pointer"
-      >
-        <span className={selectedState ? "text-black" : "text-gray-500"}>
-          {selectedState || "Select State/Province"}
-        </span>
-        <RiArrowDownSFill 
-          className={`transition-transform duration-300 text-xl text-[#777e90] ${
-            showStateList ? "rotate-180" : ""
-          }`}
-        />
-      </div>
-
-      {showStateList && (
-        <div className="absolute w-full mt-1 bg-white rounded-xl shadow-lg z-10 max-h-60 overflow-y-auto">
-          {states.map((state, index) => (
             <div
-              key={index}
-              onClick={() => handleSelectStateList(state)}
-              className="px-4 py-2 hover:bg-[#ebf1ff] cursor-pointer"
+              onClick={() => setShowStateList(!showStateList)}
+              className="w-full mt-1 px-4 py-3 rounded-xl bg-[#ebf1ff] flex items-center justify-between cursor-pointer"
             >
-              {state}
+              <span className={selectedState ? "text-black" : "text-gray-500"}>
+                {selectedState || "Select State/Province"}
+              </span>
+              <RiArrowDownSFill
+                className={`transition-transform duration-300 text-xl text-[#777e90] ${
+                  showStateList ? "rotate-180" : ""
+                }`}
+              />
             </div>
-          ))}
-        </div>
-      )}
-    </div>
-    {/* Full Address */}
-     <div>
-            <label className="text-[18px] font-[400] text-black">Full Address</label>
+
+            {showStateList && (
+              <div className="absolute w-full mt-1 bg-white rounded-xl shadow-lg z-10 max-h-60 overflow-y-auto">
+                {states.map((state, index) => (
+                  <div
+                    key={index}
+                    onClick={() => handleSelectStateList(state)}
+                    className="px-4 py-2 hover:bg-[#ebf1ff] cursor-pointer"
+                  >
+                    {state}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+          {/* Full Address */}
+          <div>
+            <label className="text-[18px] font-[400] text-black">
+              Full Address
+            </label>
             <input
               type="text"
               placeholder="4517 Washington Ave. Manchester, Kentucky 39495"

@@ -87,7 +87,7 @@ const AdminSidebar = () => {
     "/AdminUsers": { heading: "User Management" },
     "/UserDetails": { heading: "User Details" },
     "/EditUser": { heading: "Edit User" },
-    "/AdminProductManagement": { heading: "Product Management" },
+    "/AdminProductManagement": { heading: "Categories" },
     "/AdminBrand": { heading: "Brand" },
     "/AdminQuoteRequests": { heading: "Quote Requests" },
     "/AdminOrderManagement": { heading: "Order Management" },
