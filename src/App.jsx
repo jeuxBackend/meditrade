@@ -29,6 +29,12 @@ import RecentOrders from "./Admin/pages/AdminDashBoard/RecentOrders/RecentOrders
 import UserDetails from "./Admin/pages/AdminUsers/UserDetails/UserDetails";
 import EditUser from "./Admin/pages/AdminUsers/EditUser/EditUser";
 import Products from './Admin/pages/AdminProductManagement/Products/Products'
+import ProfileSetting from "./Website/Pages/ProfileSetting/ProfileSetting";
+import FAQ from "./Website/Pages/FAQ/FAQ";
+import AboutUs from "./Website/Pages/AboutUs/AboutUs";
+import TermsandConditions from "./Website/Pages/TermsandConditions/TermsandConditions";
+import PrivacyPolicy from "./Website/Pages/PrivacyPolicy/PrivacyPolicy";
+import QuoteRequests from "./Website/Pages/QuoteRequests/QuoteRequests";
 
 
 
