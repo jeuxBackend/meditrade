@@ -10,7 +10,9 @@ const WebNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const isMinimalHeader =
-    location.pathname === "/Home" || location.pathname === "/MyOrder";
+    location.pathname === "/Home" ||
+    location.pathname === "/MyOrder" ||
+    location.pathname === "/SeeMoreProduct";
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,6 +30,17 @@ const WebNavbar = () => {
     { label: "My Orders", path: "/MyOrder" },
     { label: "Chat", path: "/WebChat" },
     { label: "Loyalty Program", path: "/LoyaltyProgram" },
+  ];
+
+  // All Home-related paths
+  const homePaths = [
+    "/Home",
+    "/MyProductDetails",
+    "/MyCart",
+    "/SeeMoreProduct",
+    "/DeliveryInformation",
+    "/PaymentMethod",
+    "/SelectCard",
   ];
 
   return (
@@ -49,7 +62,9 @@ const WebNavbar = () => {
           {navItems.map((item) => {
             const isActive =
               item.label === "Home"
-                ? location.pathname.startsWith("/Home")
+                ? homePaths.some((path) =>
+                    location.pathname.startsWith(path)
+                  )
                 : location.pathname === item.path;
 
             return (
@@ -101,7 +116,9 @@ const WebNavbar = () => {
             {navItems.map((item) => {
               const isActive =
                 item.label === "Home"
-                  ? location.pathname.startsWith("/Home")
+                  ? homePaths.some((path) =>
+                      location.pathname.startsWith(path)
+                    )
                   : location.pathname === item.path;
 
               return (

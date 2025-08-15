@@ -1,7 +1,7 @@
 import React from "react";
 import WebNavbar from "../../Components/WebComponents/WebNavbar/WebNavbar";
 import { Outlet } from "react-router-dom";
-import WebFooter from "../../Components/WebComponents/Webfooter/Webfooter";
+import Footer from "../../Components/WebComponents/Footer/Footer";
 
 const Layout = () => {
   return (
@@ -10,7 +10,7 @@ const Layout = () => {
         <WebNavbar />
         <Outlet />
       </div>
-      <WebFooter />
+      <Footer />
     </div>
   );
 };
