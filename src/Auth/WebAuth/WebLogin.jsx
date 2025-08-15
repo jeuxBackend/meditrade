@@ -38,7 +38,7 @@ function WebLogin() {
         <div className="absolute inset-0 flex flex-col md:flex-row justify-center items-center overflow-y-auto pt-10">
           <div className="w-full md:w-auto my-auto px-4 z-10">
             <motion.div
-              animate={{ y: [0, -15, 0] }}
+              animate={{ y: [0, -10, 0] }}
               transition={{
                 duration: 2,
                 repeat: Infinity,
@@ -80,9 +80,9 @@ function WebLogin() {
                     )}
                   </div>
 
-                  <Link to="/ForgetPassword">
+                  <Link to="/Forgot">
                     <div className="text-right pt-2 text-white cursor-pointer">
-                      <p>Forget Password?</p>
+                      <p>Forgot Password?</p>
                     </div>
                   </Link>
 
@@ -107,7 +107,7 @@ function WebLogin() {
                 <div className="text-center mt-4">
                   <p className="text-white">
                     Don't have an account?{" "}
-                    <Link to="/WebSignup" className="text-[#00427E] font-bold text-lg">
+                    <Link to="/Signup" className="text-[#00427E] font-bold text-lg">
                       Sign Up
                     </Link>
                   </p>
