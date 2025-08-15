@@ -4,9 +4,9 @@ import Layout from './Website/WebsiteLayout/Layout'
 import Home from './Website/Pages/Home/Home'
 import MyOrder from './Website/Pages/MyOrder/MyOrder'
 import WebChat from "./Website/Pages/WebChat/WebChat";
-import MyOrderProductDetails from "./Website/Pages/MyOrder/components/MyOrderProductDetails/MyOrderProductDetails";
+// import MyOrderProductDetails from "./Website/Pages/";
 import Login from './Auth/AdminAuth/Login/Login'
-import AdminLayout from './Admin/AdminLayout'
+import AdminLayout from './Admin/AdminLayOut/AdminLayout'
 import AdminDashBoard from './Admin/pages/AdminDashBoard/AdminDashBoard'
 import AdminUsers from './Admin/pages/AdminUsers/AdminUsers'
 import AdminProductManagement from './Admin/pages/AdminProductManagement/AdminProductManagement'
@@ -44,7 +44,7 @@ function App() {
           <Route path="/SeeMoreProduct" element={<Home />} />
           {/* <Route path="/HomeProductInformation" element={<HomeProductInformation />} /> */}
           <Route path="/MyOrder" element={<MyOrder />} />
-          <Route path="/MyOrderProductDetails" element={<MyOrderProductDetails />} />
+          {/* <Route path="/MyOrderProductDetails" element={<MyOrderProductDetails />} /> */}
           <Route path="/WebChat" element={<WebChat />} />
         </Route>
 

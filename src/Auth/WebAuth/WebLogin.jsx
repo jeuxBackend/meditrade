@@ -86,7 +86,7 @@ function WebLogin() {
                     </div>
                   </Link>
 
-                  <Link to="/">
+                  <Link to="/Home">
                     <button
                       type="submit"
                       className="mt-3 rounded-[8px] bg-[#00427E] text-white cursor-pointer mx-auto block py-3 md:w-3/4 w-full"
