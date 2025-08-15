@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FiPlus } from "react-icons/fi";
 import { motion } from "framer-motion";
 import ProductImg from "../Assets/ProductImg.jpg";
@@ -50,10 +50,24 @@ const productData = [
 
 const Products = () => {
   const [menuOpenId, setMenuOpenId] = useState(null);
+  const menuRef = useRef(null);
 
   const toggleMenu = (id) => {
     setMenuOpenId(menuOpenId === id ? null : id);
   };
+
+  // Close menu on click outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpenId(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="bg-[#fafafa] lg:ml-[295px]">
@@ -61,15 +75,12 @@ const Products = () => {
       <div className="md:p-6 p-4">
         {/* button section */}
         <div className="flex gap-4 items-center justify-between md:flex-nowrap flex-wrap">
-          {/* Title */}
           <div>
             <p className="font-[500] text-[28px]">
               Scalpel{" "}
               <span className="text-[22px]">({productData.length})</span>
             </p>
           </div>
-
-          {/* Buttons */}
           <div className="flex gap-3 items-center flex-wrap">
             <motion.button
               initial={{ opacity: 0, y: -30 }}
@@ -94,12 +105,15 @@ const Products = () => {
 
         {/* Product Cards */}
         {productData.map((product) => (
-          <div
+          <motion.div
             key={product.id}
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="my-4 bg-white rounded-lg p-4 flex md:flex-nowrap flex-wrap gap-4"
           >
             {/* Left Side */}
-            <div className="relative md:w-70 w-full">
+            <div className="relative md:w-70 w-full" ref={menuRef}>
               <img
                 src={product.image}
                 className="w-full h-full rounded-lg object-cover"
@@ -111,16 +125,15 @@ const Products = () => {
                 alt="Menu"
                 onClick={() => toggleMenu(product.id)}
               />
-              {/* Dropdown Menu */}
               {menuOpenId === product.id && (
-                <div className="absolute top-6 right-6 w-36 bg-white shadow-lg rounded-lg  z-10">
+                <div className="absolute top-6 right-6 w-36 bg-white shadow-lg rounded-lg z-10">
                   <ul className="text-sm">
-                    <li className="p-2  hover:bg-gray-100 hover:rounded-lg cursor-pointer flex gap-3 font-medium items-center">
+                    <li className="p-2 hover:bg-gray-100 hover:rounded-lg cursor-pointer flex gap-3 font-medium items-center">
                       <img src={EditImg} className="w-8" alt="edit" />
                       Edit Product
                     </li>
-                    <p className="border w-full border-dashed  border-[#a3a3a3]"></p>
-                    <li className="p-2  hover:bg-gray-100 hover:rounded-lg  cursor-pointer  font-medium flex gap-3 items-center">
+                    <p className="border w-full border-dashed border-[#a3a3a3]"></p>
+                    <li className="p-2 hover:bg-gray-100 hover:rounded-lg cursor-pointer font-medium flex gap-3 items-center">
                       <img src={DeleteImg} className="w-8" alt="delete" />
                       Remove
                     </li>
@@ -134,8 +147,6 @@ const Products = () => {
               <div className="w-full">
                 <div className="flex justify-between items-center gap-3 flex-wrap">
                   <p className="font-[400] text-[25px]">{product.name}</p>
-
-                  {/* PDF Download */}
                   <div className="border-2 border-[#d9d9d9] p-2 rounded-xl flex gap-3 items-center">
                     <img src={PdfImg} className="w-10" alt="PDF" />
                     <div>
@@ -147,36 +158,23 @@ const Products = () => {
                     <img src={DownloadImg} className="w-8" alt="Download" />
                   </div>
                 </div>
-
-                {/* Details */}
                 <div className="grid md:grid-cols-6 grid-cols-2 py-3 gap-3">
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">
-                      Brand:
-                    </p>
+                    <p className="text-[14px] text-[#999999] font-[400]">Brand:</p>
                     <p className="text-[17px] font-[400]">{product.brand}</p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">
-                      Country of Origin:
-                    </p>
+                    <p className="text-[14px] text-[#999999] font-[400]">Country of Origin:</p>
                     <p className="text-[17px] font-[400]">{product.country}</p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">
-                      Company:
-                    </p>
+                    <p className="text-[14px] text-[#999999] font-[400]">Company:</p>
                     <p className="text-[17px] font-[400]">{product.company}</p>
                   </div>
                 </div>
-
                 <div className="border-b-2 border-dashed border-[#a3a3a3] pb-6">
-                  <p className="text-[14px] text-[#999999] font-[400]">
-                    Description:
-                  </p>
-                  <p className="text-[17px] font-[400]">
-                    {product.description}
-                  </p>
+                  <p className="text-[14px] text-[#999999] font-[400]">Description:</p>
+                  <p className="text-[17px] font-[400]">{product.description}</p>
                 </div>
               </div>
 
@@ -185,58 +183,32 @@ const Products = () => {
                 <div className="flex justify-between items-center">
                   <p className="font-[400] text-[25px]">Price List</p>
                 </div>
-
                 <div className="grid md:grid-cols-6 grid-cols-2 py-3 gap-3 border-b-2 border-[#a3a3a3] border-dashed">
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">
-                      Doctor:
-                    </p>
-                    <p className="text-[17px] font-[400]">
-                      {product.prices.doctor}
-                    </p>
+                    <p className="text-[14px] text-[#999999] font-[400]">Doctor:</p>
+                    <p className="text-[17px] font-[400]">{product.prices.doctor}</p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">
-                      Hospital/Clinic:
-                    </p>
-                    <p className="text-[17px] font-[400]">
-                      {product.prices.hospital}
-                    </p>
+                    <p className="text-[14px] text-[#999999] font-[400]">Hospital/Clinic:</p>
+                    <p className="text-[17px] font-[400]">{product.prices.hospital}</p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">
-                      Laboratory:
-                    </p>
-                    <p className="text-[17px] font-[400]">
-                      {product.prices.lab}
-                    </p>
+                    <p className="text-[14px] text-[#999999] font-[400]">Laboratory:</p>
+                    <p className="text-[17px] font-[400]">{product.prices.lab}</p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">
-                      Pharmacy:
-                    </p>
-                    <p className="text-[17px] font-[400]">
-                      {product.prices.pharmacy}
-                    </p>
+                    <p className="text-[14px] text-[#999999] font-[400]">Pharmacy:</p>
+                    <p className="text-[17px] font-[400]">{product.prices.pharmacy}</p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">
-                      Distributor:
-                    </p>
-                    <p className="text-[17px] font-[400]">
-                      {product.prices.distributor}
-                    </p>
+                    <p className="text-[14px] text-[#999999] font-[400]">Distributor:</p>
+                    <p className="text-[17px] font-[400]">{product.prices.distributor}</p>
                   </div>
                 </div>
-
-                {/* Sold & Button */}
                 <div className="flex gap-3 items-center flex-wrap md:justify-end justify-center mt-3">
                   <p className="font-[500] text-[#00427e] text-[28px]">
                     {product.sold}
-                    <span className="text-[19px] text-black font-[400]">
-                      {" "}
-                      Sold
-                    </span>
+                    <span className="text-[19px] text-black font-[400]"> Sold</span>
                   </p>
                   <Link
                     to="/ProductDetails"
@@ -247,7 +219,7 @@ const Products = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
