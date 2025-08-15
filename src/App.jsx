@@ -28,6 +28,7 @@ import TopSellingProducts from "./Admin/pages/AdminDashBoard/TopSellingProducts/
 import RecentOrders from "./Admin/pages/AdminDashBoard/RecentOrders/RecentOrders";
 import UserDetails from "./Admin/pages/AdminUsers/UserDetails/UserDetails";
 import EditUser from "./Admin/pages/AdminUsers/EditUser/EditUser";
+import Products from './Admin/pages/AdminProductManagement/Products/Products'
 
 function App() {
   return (
@@ -68,6 +69,10 @@ function App() {
           <Route
             path="/AdminProductManagement"
             element={<AdminProductManagement />}
+          />
+          <Route
+            path="/Products"
+            element={<Products />}
           />
           <Route path="/AdminBrand" element={<AdminBrand />} />
           <Route path="/AdminQuoteRequests" element={<AdminQuoteRequests />} />

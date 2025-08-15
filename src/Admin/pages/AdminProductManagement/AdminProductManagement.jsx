@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { CiSearch } from "react-icons/ci";
 import { FiPlus } from "react-icons/fi";
-import { motion } from "framer-motion"; // ✅ Import framer-motion
+import { motion } from "framer-motion"; 
 
 import Categories1 from "./Assets/CategoriesImg 1.png";
 import Categories2 from "./Assets/CategoriesImg 2.png";
@@ -16,16 +16,26 @@ import Categories10 from "./Assets/CategoriesImg 10.png";
 import MenuImg from "./Assets/MenuImg.png";
 import EditImg from "./Assets/EditImg.png";
 import DeleteImg from "./Assets/DeleteImg.png";
-import AddCategoriesModal from './Modal/AddCategoriesModal'
-
+import AddCategoriesModal from "./Modal/AddCategoriesModal";
+import EditCategoriesModal from "./Modal/EditCategoriesModal";
+import DeleteCategoriesModal from "./Modal/DeleteCategoriesModal";
+import { Link } from "react-router-dom";
 
 const AdminProductManagement = () => {
-  const [AddCategoriesModal, setAddCategoriesModal] = useState(false);
+  const [AddCategories, setAddCategories] = useState(false);
+  const [EditCategories, setEditCategories] = useState(false);
+  const [DeleteCategories, setDeleteCategories] = useState(false);
   const [openMenuIndex, setOpenMenuIndex] = useState(null);
   const menuRef = useRef(null);
   // Add
-  const openModal = () => setAddCategoriesModal(true);
-  const closeModal = () => setAddCategoriesModal(false);
+  const openModal = () => setAddCategories(true);
+  const closeModal = () => setAddCategories(false);
+  // Edit
+  const openEditModal = () => setEditCategories(true);
+  const closeEditModal = () => setEditCategories(false);
+  // Delete
+  const openDeleteModal = () => setDeleteCategories(true);
+  const closeDeleteModal = () => setDeleteCategories(false);
 
   const categories = [
     { id: 1, name: "Scalpel", image: Categories1 },
@@ -65,8 +75,17 @@ const AdminProductManagement = () => {
 
   return (
     <div className="bg-[#fafafa] lg:ml-[295px]">
-      <AddCategoriesModal openModal={AddCategoriesModal} closeModal={closeModal} />
-          <style>{`::-webkit-scrollbar { display: none; }`}</style>
+      <AddCategoriesModal openModal={AddCategories} closeModal={closeModal} />
+      <EditCategoriesModal
+        openEditModal={EditCategories}
+        closeEditModal={closeEditModal}
+      />
+      <DeleteCategoriesModal
+        openDeleteModal={DeleteCategories}
+        closeDeleteModal={closeDeleteModal}
+      />
+
+      <style>{`::-webkit-scrollbar { display: none; }`}</style>
       <div className="md:p-6 p-4">
         {/* Search and Add Button */}
         <div className="flex gap-4 items-center md:flex-nowrap flex-wrap">
@@ -118,11 +137,13 @@ const AdminProductManagement = () => {
                 >
                   {/* Image */}
                   <div className="relative border border-[#e1e2e3] rounded-2xl overflow-hidden">
+                    <Link to='/Products'>
                     <img
                       src={category.image}
                       className="rounded-2xl h-40 w-full object-cover"
                       alt={category.name}
                     />
+                    </Link>
                     <img
                       src={MenuImg}
                       onClick={(e) => {
@@ -146,11 +167,17 @@ const AdminProductManagement = () => {
                       className="absolute top-8 right-8 text-[16px] font-[400] bg-white border border-gray-200 rounded-lg shadow-lg w-36 z-10"
                     >
                       <ul className="text-sm">
-                        <li className="p-2 pl-3 hover:bg-gray-100 cursor-pointer flex gap-4 items-center">
+                        <li
+                          className="p-2 pl-3 hover:bg-gray-100 cursor-pointer flex gap-4 items-center"
+                          onClick={openEditModal}
+                        >
                           <img src={EditImg} className="w-8" alt="edit" />
                           Edit
                         </li>
-                        <li className="p-2 pl-3 hover:bg-gray-100 cursor-pointer flex gap-4 items-center">
+                        <li
+                          className="p-2 pl-3 hover:bg-gray-100 cursor-pointer flex gap-4 items-center"
+                          onClick={openDeleteModal}
+                        >
                           <img src={DeleteImg} className="w-8" alt="delete" />
                           Delete
                         </li>
