@@ -1,17 +1,20 @@
 import { Route, Routes } from "react-router-dom";
 import Websplash from "./Components/WebComponents/Websplash/Websplash";
 import Layout from "./Website/WebsiteLayout/Layout";
-import WebLogin from "./Auth/WebAuth/WebLogin/WebLogin";
-import WebSignup from "./Auth/WebAuth/WebSignup/WebSignup";
 import Home from "./Website/Pages/Home/Home";
 import MyOrder from "./Website/Pages/MyOrder/MyOrder";
 import WebChat from "./Website/Pages/WebChat/WebChat";
-import MyProductDetails from "./Website/Pages/Home/components/MyProductDetails/MyProductDetails";
+// import MyOrderProductDetails from "./Website/Pages/";
 import Login from "./Auth/AdminAuth/Login/Login";
 import AdminLayout from "./Admin/AdminLayOut/AdminLayout";
 import AdminDashBoard from "./Admin/pages/AdminDashBoard/AdminDashBoard";
 import AdminUsers from "./Admin/pages/AdminUsers/AdminUsers";
 import AdminProductManagement from "./Admin/pages/AdminProductManagement/AdminProductManagement";
+import WebLogin from "./Auth/WebAuth/WebLogin";
+import WebSignup from "./Auth/WebAuth/WebSignup";
+import WebForgot from "./Auth/WebAuth/WebForgot";
+import WebResetPassword from "./Auth/WebAuth/WebResetPassword";
+import MyProductDetails from "./Website/Pages/Home/components/MyProductDetails/MyProductDetails";
 import MyCart from "./Website/Pages/Home/components/MyCart/MyCart";
 import AdminBrand from "./Admin/pages/AdminBrand/AdminBrand";
 import AdminQuoteRequests from "./Admin/pages/AdminQuoteRequests/AdminQuoteRequests";
@@ -21,14 +24,9 @@ import AdminSettings from "./Admin/pages/AdminSettings/AdminSettings";
 import DeliveryInformation from "./Website/Pages/Home/components/DeliveryInformation/DeliveryInformation";
 import PaymentMethod from "./Website/Pages/Home/components/PaymentMethod/PaymentMethod";
 import SelectCard from "./Website/Pages/Home/components/SelectCard/SelectCard";
-import ProfileSetting from "./Website/Pages/ProfileSetting/ProfileSetting";
+
 import TopSellingProducts from "./Admin/pages/AdminDashBoard/Components/TopSellingProducts/TopSellingProducts";
 import RecentOrders from "./Admin/pages/AdminDashBoard/Components/RecentOrders/RecentOrders";
-import FAQ from "./Website/Pages/FAQ/FAQ";
-import AboutUs from "./Website/Pages/AboutUs/AboutUs";
-import TermsandConditions from "./Website/Pages/TermsandConditions/TermsandConditions";
-import PrivacyPolicy from "./Website/Pages/PrivacyPolicy/PrivacyPolicy";
-import QuoteRequests from "./Website/Pages/QuoteRequests/QuoteRequests";
 
 function App() {
   return (
@@ -36,17 +34,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Websplash />} />
         <Route path="/Login" element={<WebLogin />} />
-        <Route path="/WebSignup" element={<WebSignup />} />
+        <Route path="/Signup" element={<WebSignup />} />
+        <Route path="/Forgot" element={<WebForgot />} />
+        <Route path="/ResetPassword" element={<WebResetPassword />} />
+
         <Route element={<Layout />}>
-         <Route path="/Home" element={<Home />} />
-      <Route path="/SeeMoreProduct" element={<Home />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/SeeMoreProduct" element={<Home />} />
           {/* <Route path="/HomeProductInformation" element={<HomeProductInformation />} /> */}
           <Route path="/MyOrder" element={<MyOrder />} />
-          <Route path="/MyProductDetails" element={<MyProductDetails />} />
-          <Route path="/MyCart" element={<MyCart />} />
-          <Route path="/DeliveryInformation" element={<DeliveryInformation />} />
-          <Route path="/PaymentMethod" element={<PaymentMethod />} />
-          <Route path="/SelectCard" element={<SelectCard/>} />
+          {/* <Route path="/MyOrderProductDetails" element={<MyOrderProductDetails />} /> */}
           <Route path="/WebChat" element={<WebChat />} />
           <Route path="/ProfileSetting" element={<ProfileSetting />} />
           <Route path="/FAQ" element={<FAQ />} />
@@ -55,22 +52,36 @@ function App() {
           <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
           <Route path="/QuoteRequests" element={<QuoteRequests />} />
         </Route>
+
         {/* Admin side  */}
         <Route path="/Admin" element={<Login />} />
         <Route element={<AdminLayout />}>
           <Route path="/AdminDashBoard" element={<AdminDashBoard />} />
           <Route path="/TopSellingProducts" element={<TopSellingProducts />} />
-          <Route path="/RecentOrder" element={<RecentOrders/>} />
+          <Route path="/RecentOrder" element={<RecentOrders />} />
           <Route path="/AdminUsers" element={<AdminUsers />} />
+          <Route path="/MyProductDetails" element={<MyProductDetails />} />
+          <Route path="/UserDetails" element={<UserDetails />} />
+          <Route path="/EditUser" element={<EditUser />} />
+          <Route path="/MyCart" element={<MyCart />} />
+          <Route
+            path="/DeliveryInformation"
+            element={<DeliveryInformation />}
+          />
+          <Route path="/PaymentMethod" element={<PaymentMethod />} />
+          <Route path="/SelectCard" element={<SelectCard />} />
           <Route
             path="/AdminProductManagement"
             element={<AdminProductManagement />}
           />
-          <Route path='/AdminBrand' element={<AdminBrand/>}/>
-          <Route path='/AdminQuoteRequests' element={<AdminQuoteRequests/>}/>
-          <Route path='/AdminOrderManagement' element={<AdminOrderManagement/>}/>
-          <Route path='/AdminSubAdmins' element={<AdminSubAdmins/>}/>
-          <Route path='/AdminSettings' element={<AdminSettings/>}/>
+          <Route path="/AdminBrand" element={<AdminBrand />} />
+          <Route path="/AdminQuoteRequests" element={<AdminQuoteRequests />} />
+          <Route
+            path="/AdminOrderManagement"
+            element={<AdminOrderManagement />}
+          />
+          <Route path="/AdminSubAdmins" element={<AdminSubAdmins />} />
+          <Route path="/AdminSettings" element={<AdminSettings />} />
         </Route>
       </Routes>
     </>
