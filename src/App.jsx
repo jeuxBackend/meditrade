@@ -30,7 +30,7 @@ import UserDetails from "./Admin/pages/AdminUsers/UserDetails/UserDetails";
 import EditUser from "./Admin/pages/AdminUsers/EditUser/EditUser";
 import Products from './Admin/pages/AdminProductManagement/Products/Products'
 
-import RecentOrders from "./Admin/pages/AdminDashBoard/Components/RecentOrders/RecentOrders";
+
 
 function App() {
   return (
