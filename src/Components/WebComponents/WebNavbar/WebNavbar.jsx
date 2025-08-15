@@ -16,7 +16,7 @@ const WebNavbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 1024) {
+      if (window.innerWidth >= 1024) {
         setIsMenuOpen(false);
       }
     };
@@ -29,10 +29,9 @@ const WebNavbar = () => {
     { label: "Home", path: "/Home" },
     { label: "My Orders", path: "/MyOrder" },
     { label: "Chat", path: "/WebChat" },
-    { label: "Loyalty Program", path: "/LoyaltyProgram" },
+    { label: "Quote Requests", path: "/QuoteRequests" },
   ];
 
-  // All Home-related paths
   const homePaths = [
     "/Home",
     "/MyProductDetails",
@@ -49,13 +48,15 @@ const WebNavbar = () => {
         isMinimalHeader ? "py-9" : "py-4"
       }`}
     >
-      <div className="flex items-center justify-between">
-        {/* Logo */}
-        {!isMinimalHeader && (
-          <Link to="/" className="flex-shrink-0">
-            <img src={logo} alt="Logo" className="h-14" />
-          </Link>
-        )}
+      <div className="flex items-center justify-between w-full">
+        {/* Left side (Logo or empty space for alignment) */}
+        <div className="flex items-center">
+          {!isMinimalHeader && (
+            <Link to="/" className="flex-shrink-0">
+              <img src={logo} alt="Logo" className="h-14" />
+            </Link>
+          )}
+        </div>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center justify-center space-x-6 lg:space-x-14 mx-auto">
@@ -86,26 +87,32 @@ const WebNavbar = () => {
           })}
         </div>
 
-        {/* Profile */}
-        {!isMinimalHeader && (
-          <div className="hidden lg:flex items-center space-x-3">
-            <img src={profile} alt="Profile" className="h-10" />
-            <h1 className="text-[#0A2223] font-[500] pt-2">Scott Johnston</h1>
-          </div>
-        )}
+        {/* Right side (Profile + Mobile Menu Button) */}
+        <div className="flex items-center space-x-3">
+          {!isMinimalHeader && (
+            <Link to='/ProfileSetting'>
+            <div className="hidden lg:flex items-center space-x-3">
+              <img src={profile} alt="Profile" className="h-10" />
+              <h1 className="text-[#0A2223] font-[500] pt-2">
+                Scott Johnston
+              </h1>
+            </div>
+            </Link>
+          )}
 
-        {/* Mobile menu button */}
-        <div className="lg:hidden">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="text-black hover:text-green-700 focus:outline-none"
-          >
-            {isMenuOpen ? (
-              <RxCross1 className="text-[30px] font-[600]" />
-            ) : (
-              <CiMenuFries className="text-[30px] font-[600]" />
-            )}
-          </button>
+          {/* Mobile menu button */}
+          <div className="lg:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-black hover:text-green-700 focus:outline-none"
+            >
+              {isMenuOpen ? (
+                <RxCross1 className="text-[30px] font-[600]" />
+              ) : (
+                <CiMenuFries className="text-[30px] font-[600]" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
 

@@ -21,9 +21,14 @@ import AdminSettings from "./Admin/pages/AdminSettings/AdminSettings";
 import DeliveryInformation from "./Website/Pages/Home/components/DeliveryInformation/DeliveryInformation";
 import PaymentMethod from "./Website/Pages/Home/components/PaymentMethod/PaymentMethod";
 import SelectCard from "./Website/Pages/Home/components/SelectCard/SelectCard";
-
+import ProfileSetting from "./Website/Pages/ProfileSetting/ProfileSetting";
 import TopSellingProducts from "./Admin/pages/AdminDashBoard/Components/TopSellingProducts/TopSellingProducts";
 import RecentOrders from "./Admin/pages/AdminDashBoard/Components/RecentOrders/RecentOrders";
+import FAQ from "./Website/Pages/FAQ/FAQ";
+import AboutUs from "./Website/Pages/AboutUs/AboutUs";
+import TermsandConditions from "./Website/Pages/TermsandConditions/TermsandConditions";
+import PrivacyPolicy from "./Website/Pages/PrivacyPolicy/PrivacyPolicy";
+import QuoteRequests from "./Website/Pages/QuoteRequests/QuoteRequests";
 
 function App() {
   return (
@@ -43,6 +48,12 @@ function App() {
           <Route path="/PaymentMethod" element={<PaymentMethod />} />
           <Route path="/SelectCard" element={<SelectCard/>} />
           <Route path="/WebChat" element={<WebChat />} />
+          <Route path="/ProfileSetting" element={<ProfileSetting />} />
+          <Route path="/FAQ" element={<FAQ />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
+          <Route path="/TermsandConditions" element={<TermsandConditions />} />
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+          <Route path="/QuoteRequests" element={<QuoteRequests />} />
         </Route>
         {/* Admin side  */}
         <Route path="/Admin" element={<Login />} />

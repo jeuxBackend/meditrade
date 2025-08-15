@@ -6,7 +6,7 @@ import Footer from "../../Components/WebComponents/Footer/Footer";
 const Layout = () => {
   return (
     <div>
-      <div className="bg-[#EBF1FF]">
+      <div className="bg-[#EBF1FF] ">
         <WebNavbar />
         <Outlet />
       </div>

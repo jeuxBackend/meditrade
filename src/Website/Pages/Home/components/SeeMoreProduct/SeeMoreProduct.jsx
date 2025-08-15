@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { CiSearch } from "react-icons/ci";
 import { IoCaretDownOutline } from "react-icons/io5";
 import bpimg6 from "./Assets/image6.png";
@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import filter from "./Assets/filter.png";
 
 function SeeMoreProduct() {
-  const [showFilters, setShowFilters] = useState(false);
   return (
     <div className="px-3 md:px-9 py-4 mt-[-80px]">
        <div className="w-full relative bg-white rounded-xl ">
@@ -23,13 +22,11 @@ function SeeMoreProduct() {
 
         <div
           className="bg-[#ebf1ff] py-2 px-2 rounded-lg absolute top-1 right-2 cursor-pointer"
-          onClick={() => setShowFilters(!showFilters)}
         >
           <img src={filter} alt="" className="w-8 h-8" />
         </div>
       </div>
 
-      {showFilters && (
         <div className="py-3 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
           <div className="bg-[#ebf1ff] flex items-center justify-between py-4 cursor-pointer px-3 rounded-lg">
             <p className="text-[#333333] font-medium">Country of Origin</p>
@@ -52,7 +49,7 @@ function SeeMoreProduct() {
             <IoCaretDownOutline className="text-[#777e90]" />
           </div>
         </div>
-      )}
+     
     </div>
       <div>
         <p className="text-2xl font-semibold py-5">BP Apparatus</p>
@@ -99,17 +96,18 @@ function SeeMoreProduct() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <Link to="/MyProductDetails">
+                
                     <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
                       <img src={cartplus} alt="" className="h-5 " />
                       <p className="text-nowrap text-sm lg:text-base">
                         Add To Cart
                       </p>
                     </div>
-                  </Link>
+                      <Link to="/MyProductDetails">
                   <div className="flex items-center justify-center cursor-pointer px-23 lg:px-14 xl:px-23 font-medium bg-[#eaebfc]  py-2 text-black gap-2 rounded-md">
                     <p className="text-sm lg:text-base">View Details</p>
                   </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -156,17 +154,17 @@ function SeeMoreProduct() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <Link to="/MyProductDetails">
                     <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
                       <img src={cartplus} alt="" className="h-5 " />
                       <p className="text-nowrap text-sm lg:text-base">
                         Add To Cart
                       </p>
                     </div>
-                  </Link>
+                   <Link to="/MyProductDetails">
                   <div className="flex items-center justify-center cursor-pointer px-23 lg:px-14 xl:px-23 font-medium bg-[#eaebfc]  py-2 text-black gap-2 rounded-md">
                     <p className="text-sm lg:text-base">View Details</p>
                   </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -213,17 +211,17 @@ function SeeMoreProduct() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <Link to="/MyProductDetails">
                     <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
                       <img src={cartplus} alt="" className="h-5 " />
                       <p className="text-nowrap text-sm lg:text-base">
                         Add To Cart
                       </p>
                     </div>
-                  </Link>
+                   <Link to="/MyProductDetails">
                   <div className="flex items-center justify-center cursor-pointer px-23 lg:px-14 xl:px-23 font-medium bg-[#eaebfc]  py-2 text-black gap-2 rounded-md">
                     <p className="text-sm lg:text-base">View Details</p>
                   </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -270,17 +268,17 @@ function SeeMoreProduct() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <Link to="/MyProductDetails">
                     <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
                       <img src={cartplus} alt="" className="h-5 " />
                       <p className="text-nowrap text-sm lg:text-base">
                         Add To Cart
                       </p>
                     </div>
-                  </Link>
+                  <Link to="/MyProductDetails">
                   <div className="flex items-center justify-center cursor-pointer px-23 lg:px-14 xl:px-23 font-medium bg-[#eaebfc]  py-2 text-black gap-2 rounded-md">
                     <p className="text-sm lg:text-base">View Details</p>
                   </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -327,17 +325,17 @@ function SeeMoreProduct() {
                   </div>
                 </div>
                 <div className=" items-center gap-2 justify-center flex flex-col  sm:flex-row lg:flex-col">
-                  <Link to="/MyProductDetails">
                     <div className="flex items-center justify-center px-20 lg:px-11 xl:px-20 bg-[#00427e] cursor-pointer py-2 text-white gap-2 rounded-md">
                       <img src={cartplus} alt="" className="h-5 " />
                       <p className="text-nowrap text-sm lg:text-base">
                         Add To Cart
                       </p>
                     </div>
-                  </Link>
+                 <Link to="/MyProductDetails">
                   <div className="flex items-center justify-center cursor-pointer px-23 lg:px-14 xl:px-23 font-medium bg-[#eaebfc]  py-2 text-black gap-2 rounded-md">
                     <p className="text-sm lg:text-base">View Details</p>
                   </div>
+                  </Link>
                 </div>
               </div>
             </div>

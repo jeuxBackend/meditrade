@@ -21,7 +21,7 @@ function PaymentMethod() {
         <img 
          onClick={() => navigate(-1)}
         src={closeicon} alt="" className="h-8 md:h-9" />
-        <p className="text-xl md:text-2xl font-semibold">
+        <p className="text-xl md:text-2xl font-semibold text-[#333333]">
           Select Payment Method
         </p>
       </div>

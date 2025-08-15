@@ -34,7 +34,7 @@ function MyOrderProductDetails() {
         onClick={() => navigate(-1)}
       >
         <img src={closeicon} alt="" className="h-8 md:h-9" />
-        <p className="text-xl md:text-2xl font-semibold">Product Details</p>
+        <p className="text-xl md:text-2xl font-semibold text-[#333333]">Product Details</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5 pb-4 border-b-2 border-dashed border-[#a3a3a3]">
         <div>
