@@ -30,7 +30,7 @@ function MyCart() {
       onClick={() => navigate(-1)}
     >
       <img src={closeicon} alt="" className="h-8 md:h-9" />
-      <p className="text-xl md:text-2xl font-semibold">My Cart</p>
+      <p className="text-xl md:text-2xl font-semibold text-[#333333]">My Cart</p>
     </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3  gap-4">

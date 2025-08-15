@@ -30,6 +30,8 @@ import UserDetails from "./Admin/pages/AdminUsers/UserDetails/UserDetails";
 import EditUser from "./Admin/pages/AdminUsers/EditUser/EditUser";
 import Products from './Admin/pages/AdminProductManagement/Products/Products'
 
+import RecentOrders from "./Admin/pages/AdminDashBoard/Components/RecentOrders/RecentOrders";
+
 function App() {
   return (
     <>
@@ -47,6 +49,12 @@ function App() {
           <Route path="/MyOrder" element={<MyOrder />} />
           {/* <Route path="/MyOrderProductDetails" element={<MyOrderProductDetails />} /> */}
           <Route path="/WebChat" element={<WebChat />} />
+          <Route path="/ProfileSetting" element={<ProfileSetting />} />
+          <Route path="/FAQ" element={<FAQ />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
+          <Route path="/TermsandConditions" element={<TermsandConditions />} />
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+          <Route path="/QuoteRequests" element={<QuoteRequests />} />
         </Route>
 
         {/* Admin side  */}
