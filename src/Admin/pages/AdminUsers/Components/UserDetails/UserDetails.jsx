@@ -9,6 +9,7 @@ const UserDetails = () => {
   const closeDeleteModal = () => setDeleteUsersModal(false);
   return (
     <div className="bg-[#fafafa] lg:ml-[295px]">
+          <style>{`::-webkit-scrollbar { display: none; }`}</style>
       <DeleteUsersModal isOpen={deleteUsersModal} onClose={closeDeleteModal} />
       <div className="md:p-6 p-3">
         <div className="flex justify-between gap-4 items-center flex-wrap">

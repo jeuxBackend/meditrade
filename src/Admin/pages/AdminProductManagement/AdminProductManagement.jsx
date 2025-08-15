@@ -16,10 +16,15 @@ import Categories10 from "./Assets/CategoriesImg 10.png";
 import MenuImg from "./Assets/MenuImg.png";
 import EditImg from "./Assets/EditImg.png";
 import DeleteImg from "./Assets/DeleteImg.png";
+import CategoriesModal from "./Modal/CategoriesModal";
 
 const AdminProductManagement = () => {
+  const [AddCategoriesModal, setAddCategoriesModal] = useState(false);
   const [openMenuIndex, setOpenMenuIndex] = useState(null);
   const menuRef = useRef(null);
+  // Add
+  const openModal = () => setAddCategoriesModal(true);
+  const closeModal = () => setAddCategoriesModal(false);
 
   const categories = [
     { id: 1, name: "Scalpel", image: Categories1 },
@@ -59,6 +64,8 @@ const AdminProductManagement = () => {
 
   return (
     <div className="bg-[#fafafa] lg:ml-[295px]">
+      <CategoriesModal openModal={AddCategoriesModal} closeModal={closeModal} />
+          <style>{`::-webkit-scrollbar { display: none; }`}</style>
       <div className="md:p-6 p-4">
         {/* Search and Add Button */}
         <div className="flex gap-4 items-center md:flex-nowrap flex-wrap">
@@ -82,7 +89,8 @@ const AdminProductManagement = () => {
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-            className="bg-[#00427e] hover:bg-[#003366] transition-all text-[16px] text-white px-5 py-3 flex gap-2 md:w-auto w-full rounded-lg justify-center items-center"
+            className="bg-[#00427e] cursor-pointer  hover:bg-[#003366] transition-all text-[16px] text-white px-5 py-3 flex gap-2 md:w-auto w-full rounded-lg justify-center items-center"
+            onClick={openModal}
           >
             <FiPlus className="text-lg" />
             <span className="whitespace-nowrap">Add Category</span>

@@ -28,6 +28,7 @@ const fadeIn = (direction = "up", delay = 0) => {
 const AdminDashboard = () => {
   return (
     <div className="bg-[#fafafa] lg:ml-[295px]">
+          <style>{`::-webkit-scrollbar { display: none; }`}</style>
       <div className="md:p-6 p-3">
 
         {/* Welcome Text */}

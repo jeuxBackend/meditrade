@@ -45,6 +45,7 @@ const TopSellingProducts = () => {
 
   return (
     <div className="bg-[#fafafa] lg:ml-[295px]">
+          <style>{`::-webkit-scrollbar { display: none; }`}</style>
       <div className="md:p-6 p-3">
         {products.map((product, index) => (
           <motion.div

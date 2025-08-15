@@ -44,6 +44,7 @@ const orders = [
 const RecentOrders = () => {
   return (
     <div className="bg-[#fafafa] lg:ml-[295px]">
+          <style>{`::-webkit-scrollbar { display: none; }`}</style>
       <div className="md:p-6 p-3 space-y-4">
         {orders.map((order) => (
           <motion.div
