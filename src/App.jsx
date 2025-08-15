@@ -35,6 +35,7 @@ import AboutUs from "./Website/Pages/AboutUs/AboutUs";
 import TermsandConditions from "./Website/Pages/TermsandConditions/TermsandConditions";
 import PrivacyPolicy from "./Website/Pages/PrivacyPolicy/PrivacyPolicy";
 import QuoteRequests from "./Website/Pages/QuoteRequests/QuoteRequests";
+import ProductDetails from "./Admin/pages/AdminProductManagement/Products/ProductDetails/ProductDetails";
 
 
 
@@ -87,6 +88,10 @@ function App() {
           <Route
             path="/Products"
             element={<Products />}
+          />
+          <Route
+            path="/ProductDetails"
+            element={<ProductDetails />}
           />
           <Route path="/AdminBrand" element={<AdminBrand />} />
           <Route path="/AdminQuoteRequests" element={<AdminQuoteRequests />} />

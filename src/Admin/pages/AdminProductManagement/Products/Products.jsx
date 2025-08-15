@@ -5,6 +5,9 @@ import ProductImg from "../Assets/ProductImg.jpg";
 import MenuImg from "../Assets/MenuImg.png";
 import PdfImg from "../Assets/PdfImg.png";
 import DownloadImg from "../Assets/DownloadImg.png";
+import EditImg from "../Assets/EditImg.png";
+import DeleteImg from "../Assets/DeleteImg.png";
+import { Link } from "react-router-dom";
 
 const productData = [
   {
@@ -13,7 +16,8 @@ const productData = [
     brand: "Rossmax",
     country: "America",
     company: "America",
-    description: "Quam bibendum sit nec egestas facilisis molestie nisi sit sed....",
+    description:
+      "Quam bibendum sit nec egestas facilisis molestie nisi sit sed....",
     prices: {
       doctor: "$100.00 + $10(Tax)",
       hospital: "$100.00 + $10(Tax)",
@@ -30,7 +34,8 @@ const productData = [
     brand: "Rossmax",
     country: "America",
     company: "America",
-    description: "Quam bibendum sit nec egestas facilisis molestie nisi sit sed....",
+    description:
+      "Quam bibendum sit nec egestas facilisis molestie nisi sit sed....",
     prices: {
       doctor: "$100.00 + $10(Tax)",
       hospital: "$100.00 + $10(Tax)",
@@ -59,7 +64,8 @@ const Products = () => {
           {/* Title */}
           <div>
             <p className="font-[500] text-[28px]">
-              Scalpel <span className="text-[22px]">({productData.length})</span>
+              Scalpel{" "}
+              <span className="text-[22px]">({productData.length})</span>
             </p>
           </div>
 
@@ -93,7 +99,7 @@ const Products = () => {
             className="my-4 bg-white rounded-lg p-4 flex md:flex-nowrap flex-wrap gap-4"
           >
             {/* Left Side */}
-            <div className="relative md:w-64 w-full">
+            <div className="relative md:w-70 w-full">
               <img
                 src={product.image}
                 className="w-full h-full rounded-lg object-cover"
@@ -107,10 +113,18 @@ const Products = () => {
               />
               {/* Dropdown Menu */}
               {menuOpenId === product.id && (
-                <div className="absolute top-12 right-3 bg-white shadow-lg rounded-lg p-2 z-10">
-                  <p className="p-2 hover:bg-gray-100 cursor-pointer">Edit</p>
-                  <p className="p-2 hover:bg-gray-100 cursor-pointer">Delete</p>
-                  <p className="p-2 hover:bg-gray-100 cursor-pointer">View</p>
+                <div className="absolute top-6 right-6 w-36 bg-white shadow-lg rounded-lg  z-10">
+                  <ul className="text-sm">
+                    <li className="p-2  hover:bg-gray-100 hover:rounded-lg cursor-pointer flex gap-3 font-medium items-center">
+                      <img src={EditImg} className="w-8" alt="edit" />
+                      Edit Product
+                    </li>
+                    <p className="border w-full border-dashed  border-[#a3a3a3]"></p>
+                    <li className="p-2  hover:bg-gray-100 hover:rounded-lg  cursor-pointer  font-medium flex gap-3 items-center">
+                      <img src={DeleteImg} className="w-8" alt="delete" />
+                      Remove
+                    </li>
+                  </ul>
                 </div>
               )}
             </div>
@@ -137,7 +151,9 @@ const Products = () => {
                 {/* Details */}
                 <div className="grid md:grid-cols-6 grid-cols-2 py-3 gap-3">
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">Brand:</p>
+                    <p className="text-[14px] text-[#999999] font-[400]">
+                      Brand:
+                    </p>
                     <p className="text-[17px] font-[400]">{product.brand}</p>
                   </div>
                   <div>
@@ -147,14 +163,20 @@ const Products = () => {
                     <p className="text-[17px] font-[400]">{product.country}</p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">Company:</p>
+                    <p className="text-[14px] text-[#999999] font-[400]">
+                      Company:
+                    </p>
                     <p className="text-[17px] font-[400]">{product.company}</p>
                   </div>
                 </div>
 
                 <div className="border-b-2 border-dashed border-[#a3a3a3] pb-6">
-                  <p className="text-[14px] text-[#999999] font-[400]">Description:</p>
-                  <p className="text-[17px] font-[400]">{product.description}</p>
+                  <p className="text-[14px] text-[#999999] font-[400]">
+                    Description:
+                  </p>
+                  <p className="text-[17px] font-[400]">
+                    {product.description}
+                  </p>
                 </div>
               </div>
 
@@ -166,26 +188,44 @@ const Products = () => {
 
                 <div className="grid md:grid-cols-6 grid-cols-2 py-3 gap-3 border-b-2 border-[#a3a3a3] border-dashed">
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">Doctor:</p>
-                    <p className="text-[17px] font-[400]">{product.prices.doctor}</p>
+                    <p className="text-[14px] text-[#999999] font-[400]">
+                      Doctor:
+                    </p>
+                    <p className="text-[17px] font-[400]">
+                      {product.prices.doctor}
+                    </p>
                   </div>
                   <div>
                     <p className="text-[14px] text-[#999999] font-[400]">
                       Hospital/Clinic:
                     </p>
-                    <p className="text-[17px] font-[400]">{product.prices.hospital}</p>
+                    <p className="text-[17px] font-[400]">
+                      {product.prices.hospital}
+                    </p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">Laboratory:</p>
-                    <p className="text-[17px] font-[400]">{product.prices.lab}</p>
+                    <p className="text-[14px] text-[#999999] font-[400]">
+                      Laboratory:
+                    </p>
+                    <p className="text-[17px] font-[400]">
+                      {product.prices.lab}
+                    </p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">Pharmacy:</p>
-                    <p className="text-[17px] font-[400]">{product.prices.pharmacy}</p>
+                    <p className="text-[14px] text-[#999999] font-[400]">
+                      Pharmacy:
+                    </p>
+                    <p className="text-[17px] font-[400]">
+                      {product.prices.pharmacy}
+                    </p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">Distributor:</p>
-                    <p className="text-[17px] font-[400]">{product.prices.distributor}</p>
+                    <p className="text-[14px] text-[#999999] font-[400]">
+                      Distributor:
+                    </p>
+                    <p className="text-[17px] font-[400]">
+                      {product.prices.distributor}
+                    </p>
                   </div>
                 </div>
 
@@ -193,16 +233,17 @@ const Products = () => {
                 <div className="flex gap-3 items-center flex-wrap md:justify-end justify-center mt-3">
                   <p className="font-[500] text-[#00427e] text-[28px]">
                     {product.sold}
-                    <span className="text-[19px] text-black font-[400]"> Sold</span>
+                    <span className="text-[19px] text-black font-[400]">
+                      {" "}
+                      Sold
+                    </span>
                   </p>
-                  <motion.button
-                    initial={{ opacity: 0, y: -30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                  <Link
+                    to="/ProductDetails"
                     className="bg-[#00427e] cursor-pointer hover:bg-[#003366] transition-all text-[16px] text-white px-5 py-3 flex gap-2 md:w-auto w-full rounded-lg justify-center items-center"
                   >
                     <span className="whitespace-nowrap">View Details</span>
-                  </motion.button>
+                  </Link>
                 </div>
               </div>
             </div>

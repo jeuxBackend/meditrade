@@ -45,7 +45,7 @@ const AdminSidebar = () => {
       path: "/AdminProductManagement",
       img: ProductImg,
       label: "Product Management",
-      routes: ["/AdminProductManagement","/Products"],
+      routes: ["/AdminProductManagement","/Products","/ProductDetails"],
     },
     {
       path: "/AdminBrand",
@@ -89,13 +89,14 @@ const AdminSidebar = () => {
     "/EditUser": { heading: "Edit User" },
     "/AdminProductManagement": { heading: "Categories" },
     "/Products": { heading: "Products" },
+    "/ProductDetails": { heading: "Product Details" },
     "/AdminBrand": { heading: "Brand" },
     "/AdminQuoteRequests": { heading: "Quote Requests" },
     "/AdminOrderManagement": { heading: "Order Management" },
     "/AdminSubAdmins": { heading: "Sub-Admins" },
     "/AdminSettings": { heading: "Settings" },
   };
-  const backEnabledPaths = ["/TopSellingProducts","/RecentOrder","/UserDetails","/EditUser","/Products"];
+  const backEnabledPaths = ["/TopSellingProducts","/RecentOrder","/UserDetails","/EditUser","/Products","/ProductDetails"];
   const isBackButtonAllowed = backEnabledPaths.some((path) =>
     location.pathname.startsWith(path)
   );

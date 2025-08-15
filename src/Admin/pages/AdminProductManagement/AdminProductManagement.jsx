@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { CiSearch } from "react-icons/ci";
 import { FiPlus } from "react-icons/fi";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 
 import Categories1 from "./Assets/CategoriesImg 1.png";
 import Categories2 from "./Assets/CategoriesImg 2.png";
@@ -137,12 +137,12 @@ const AdminProductManagement = () => {
                 >
                   {/* Image */}
                   <div className="relative border border-[#e1e2e3] rounded-2xl overflow-hidden">
-                    <Link to='/Products'>
-                    <img
-                      src={category.image}
-                      className="rounded-2xl h-40 w-full object-cover"
-                      alt={category.name}
-                    />
+                    <Link to="/Products">
+                      <img
+                        src={category.image}
+                        className="rounded-2xl h-40 w-full object-cover"
+                        alt={category.name}
+                      />
                     </Link>
                     <img
                       src={MenuImg}
@@ -168,14 +168,15 @@ const AdminProductManagement = () => {
                     >
                       <ul className="text-sm">
                         <li
-                          className="p-2 pl-3 hover:bg-gray-100 cursor-pointer flex gap-4 items-center"
+                          className="p-2 pl-3 hover:bg-gray-100 hover:rounded-lg font-medium cursor-pointer flex gap-3 items-center"
                           onClick={openEditModal}
                         >
                           <img src={EditImg} className="w-8" alt="edit" />
                           Edit
                         </li>
+                        <p className="border w-full border-dashed  border-[#a3a3a3]"></p>
                         <li
-                          className="p-2 pl-3 hover:bg-gray-100 cursor-pointer flex gap-4 items-center"
+                          className="p-2 pl-3 hover:bg-gray-100 hover:rounded-lg cursor-pointer font-medium flex gap-3 items-center"
                           onClick={openDeleteModal}
                         >
                           <img src={DeleteImg} className="w-8" alt="delete" />
