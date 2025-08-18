@@ -4,7 +4,7 @@ import bpimg6 from "./Assets/image6.png";
 function RefusedRequest() {
   return (
     <div className="mt-5 space-y-6">
-      <div className="bg-white flex flex-col xl:flex-row items-center gap-3 lg:gap-6 py-3 px-3 lg:px-6 rounded-lg">
+      <div className="bg-white flex flex-col xl:flex-row items-center gap-3 lg:gap-6 py-3 px-3 rounded-lg">
         <img
           src={bpimg6}
           alt="Advanced Dissection Kit"
@@ -61,7 +61,7 @@ function RefusedRequest() {
           </div>
         </div>
       </div>
-      <div className="bg-white flex flex-col xl:flex-row items-center gap-3 lg:gap-6 py-3 px-3 lg:px-6 rounded-lg">
+      <div className="bg-white flex flex-col xl:flex-row items-center gap-3 lg:gap-6 py-3 px-3 rounded-lg">
         <img
           src={bpimg6}
           alt="Advanced Dissection Kit"
@@ -118,7 +118,7 @@ function RefusedRequest() {
           </div>
         </div>
       </div>
-      <div className="bg-white flex flex-col xl:flex-row items-center gap-3 lg:gap-6 py-3 px-3 lg:px-6 rounded-lg">
+      <div className="bg-white flex flex-col xl:flex-row items-center gap-3 lg:gap-6 py-3 px-3 rounded-lg">
         <img
           src={bpimg6}
           alt="Advanced Dissection Kit"
@@ -175,7 +175,7 @@ function RefusedRequest() {
           </div>
         </div>
       </div>
-      <div className="bg-white flex flex-col xl:flex-row items-center gap-3 lg:gap-6 py-3 px-3 lg:px-6 rounded-lg">
+      <div className="bg-white flex flex-col xl:flex-row items-center gap-3 lg:gap-6 py-3 px-3  rounded-lg">
         <img
           src={bpimg6}
           alt="Advanced Dissection Kit"
@@ -232,7 +232,7 @@ function RefusedRequest() {
           </div>
         </div>
       </div>
-      <div className="bg-white flex flex-col xl:flex-row items-center gap-3 lg:gap-6 py-3 px-3 lg:px-6 rounded-lg">
+      <div className="bg-white flex flex-col xl:flex-row items-center gap-3 lg:gap-6 py-3 px-3 rounded-lg">
         <img
           src={bpimg6}
           alt="Advanced Dissection Kit"

@@ -11,7 +11,6 @@ const WebNavbar = () => {
 
   const isMinimalHeader =
     location.pathname === "/Home" ||
-    location.pathname === "/MyOrder" ||
     location.pathname === "/SeeMoreProduct";
 
   useEffect(() => {
