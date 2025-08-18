@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { motion } from "framer-motion";
-import delImg from "../Assets/delImg.png";
+import delImg from "../../Assets/delImg.png";
 
-function DeleteCategoriesModal({ openDeleteModal, closeDeleteModal, }) {
+function DeleteProductModal({ openDeleteModal, closeDeleteModal }) {
   if (!openDeleteModal) return null;
 
   return (
@@ -27,10 +27,9 @@ function DeleteCategoriesModal({ openDeleteModal, closeDeleteModal, }) {
             <img src={delImg} className="w-20" />
           </div>
 
-          <h2 className="text-[20px] font-semibold">Delete User</h2>
+          <h2 className="text-[20px] font-semibold">Delete Product </h2>
           <p className="text-[#85909b]  text-center font-medium">
-            Are you sure to  this 
-            user?
+            Are you sure to this Product?
           </p>
 
           <div className="flex gap-3 flex-col mt-3 w-full">
@@ -49,9 +48,9 @@ function DeleteCategoriesModal({ openDeleteModal, closeDeleteModal, }) {
     </motion.div>
   );
 }
-DeleteCategoriesModal.propTypes = {
+DeleteProductModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
 };
 
-export default DeleteCategoriesModal;
+export default DeleteProductModal;

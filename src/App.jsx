@@ -28,7 +28,7 @@ import TopSellingProducts from "./Admin/pages/AdminDashBoard/TopSellingProducts/
 import RecentOrders from "./Admin/pages/AdminDashBoard/RecentOrders/RecentOrders";
 import UserDetails from "./Admin/pages/AdminUsers/UserDetails/UserDetails";
 import EditUser from "./Admin/pages/AdminUsers/EditUser/EditUser";
-import Products from './Admin/pages/AdminProductManagement/Products/Products'
+import Products from "./Admin/pages/AdminProductManagement/Products/Products";
 import ProfileSetting from "./Website/Pages/ProfileSetting/ProfileSetting";
 import FAQ from "./Website/Pages/FAQ/FAQ";
 import AboutUs from "./Website/Pages/AboutUs/AboutUs";
@@ -36,8 +36,8 @@ import TermsandConditions from "./Website/Pages/TermsandConditions/TermsandCondi
 import PrivacyPolicy from "./Website/Pages/PrivacyPolicy/PrivacyPolicy";
 import QuoteRequests from "./Website/Pages/QuoteRequests/QuoteRequests";
 import ProductDetails from "./Admin/pages/AdminProductManagement/Products/ProductDetails/ProductDetails";
-
-
+import AddProduct from "./Admin/pages/AdminProductManagement/Products/AddProduct/AddProduct";
+import EditProduct from "./Admin/pages/AdminProductManagement/Products/EditProduct/EditProduct";
 
 function App() {
   return (
@@ -85,14 +85,10 @@ function App() {
             path="/AdminProductManagement"
             element={<AdminProductManagement />}
           />
-          <Route
-            path="/Products"
-            element={<Products />}
-          />
-          <Route
-            path="/ProductDetails"
-            element={<ProductDetails />}
-          />
+          <Route path="/Products" element={<Products />} />
+          <Route path="/ProductDetails" element={<ProductDetails />} />
+          <Route path="/AddProduct" element={<AddProduct />} />
+          <Route path="/EditProduct" element={<EditProduct />} />
           <Route path="/AdminBrand" element={<AdminBrand />} />
           <Route path="/AdminQuoteRequests" element={<AdminQuoteRequests />} />
           <Route

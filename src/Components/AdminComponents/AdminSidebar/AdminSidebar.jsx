@@ -39,13 +39,19 @@ const AdminSidebar = () => {
       path: "/AdminUsers",
       img: UsersImg,
       label: "Users",
-      routes: ["/AdminUsers","/UserDetails","/EditUser"],
+      routes: ["/AdminUsers", "/UserDetails", "/EditUser"],
     },
     {
       path: "/AdminProductManagement",
       img: ProductImg,
       label: "Product Management",
-      routes: ["/AdminProductManagement","/Products","/ProductDetails"],
+      routes: [
+        "/AdminProductManagement",
+        "/Products",
+        "/ProductDetails",
+        "/AddProduct",
+        "/EditProduct",
+      ],
     },
     {
       path: "/AdminBrand",
@@ -90,13 +96,25 @@ const AdminSidebar = () => {
     "/AdminProductManagement": { heading: "Categories" },
     "/Products": { heading: "Products" },
     "/ProductDetails": { heading: "Product Details" },
+    "/AddProduct": { heading: "Add Product" },
+    "/EditProduct": { heading: "Edit Product" },
     "/AdminBrand": { heading: "Brand" },
     "/AdminQuoteRequests": { heading: "Quote Requests" },
     "/AdminOrderManagement": { heading: "Order Management" },
     "/AdminSubAdmins": { heading: "Sub-Admins" },
     "/AdminSettings": { heading: "Settings" },
   };
-  const backEnabledPaths = ["/TopSellingProducts","/RecentOrder","/UserDetails","/EditUser","/Products","/ProductDetails"];
+  const backEnabledPaths = [
+    "/TopSellingProducts",
+    "/RecentOrder",
+    "/UserDetails",
+    "/EditUser",
+    "/Products",
+    "/ProductDetails",
+    "/AddProduct",
+    ,
+    "/EditProduct",
+  ];
   const isBackButtonAllowed = backEnabledPaths.some((path) =>
     location.pathname.startsWith(path)
   );

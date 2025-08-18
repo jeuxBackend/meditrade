@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { FiPlus } from "react-icons/fi";
 import { motion } from "framer-motion";
 import ProductImg from "../Assets/ProductImg.jpg";
@@ -8,6 +8,7 @@ import DownloadImg from "../Assets/DownloadImg.png";
 import EditImg from "../Assets/EditImg.png";
 import DeleteImg from "../Assets/DeleteImg.png";
 import { Link } from "react-router-dom";
+import DeleteProductModal from "./Modal/DeleteProductModal";
 
 const productData = [
   {
@@ -50,16 +51,15 @@ const productData = [
 
 const Products = () => {
   const [menuOpenId, setMenuOpenId] = useState(null);
-  const menuRef = useRef(null);
 
   const toggleMenu = (id) => {
     setMenuOpenId(menuOpenId === id ? null : id);
   };
 
-  // Close menu on click outside
+  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+      if (!event.target.closest(".menu-container")) {
         setMenuOpenId(null);
       }
     };
@@ -68,9 +68,17 @@ const Products = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  const [DeleteProduct, setDeleteProduct] = useState(false);
+  // Delete
+  const openDeleteModal = () => setDeleteProduct(true);
+  const closeDeleteModal = () => setDeleteProduct(false);
 
   return (
     <div className="bg-[#fafafa] lg:ml-[295px]">
+      <DeleteProductModal
+        openDeleteModal={DeleteProduct}
+        closeDeleteModal={closeDeleteModal}
+      />
       <style>{`::-webkit-scrollbar { display: none; }`}</style>
       <div className="md:p-6 p-4">
         {/* button section */}
@@ -91,15 +99,17 @@ const Products = () => {
               <FiPlus className="text-lg" />
               <span className="whitespace-nowrap">Import CSV</span>
             </motion.button>
-            <motion.button
-              initial={{ opacity: 0, y: -30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-              className="bg-[#00427e] cursor-pointer hover:bg-[#003366] transition-all text-[16px] text-white px-5 py-3 flex gap-2 md:w-auto w-full rounded-lg justify-center items-center"
-            >
-              <FiPlus className="text-lg" />
-              <span className="whitespace-nowrap">Add Product</span>
-            </motion.button>
+            <Link to="/AddProduct">
+              <motion.button
+                initial={{ opacity: 0, y: -30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                className="bg-[#00427e] cursor-pointer hover:bg-[#003366] transition-all text-[16px] text-white px-5 py-3 flex gap-2 md:w-auto w-full rounded-lg justify-center items-center"
+              >
+                <FiPlus className="text-lg" />
+                <span className="whitespace-nowrap">Add Product</span>
+              </motion.button>
+            </Link>
           </div>
         </div>
 
@@ -113,7 +123,7 @@ const Products = () => {
             className="my-4 bg-white rounded-lg p-4 flex md:flex-nowrap flex-wrap gap-4"
           >
             {/* Left Side */}
-            <div className="relative md:w-70 w-full" ref={menuRef}>
+            <div className="relative md:w-70 w-full menu-container">
               <img
                 src={product.image}
                 className="w-full h-full rounded-lg object-cover"
@@ -126,15 +136,20 @@ const Products = () => {
                 onClick={() => toggleMenu(product.id)}
               />
               {menuOpenId === product.id && (
-                <div className="absolute top-6 right-6 w-36 bg-white shadow-lg rounded-lg z-10">
+                <div className="absolute top-6 right-6 w-34 bg-white shadow-lg rounded-lg z-10">
                   <ul className="text-sm">
-                    <li className="p-2 hover:bg-gray-100 hover:rounded-lg cursor-pointer flex gap-3 font-medium items-center">
-                      <img src={EditImg} className="w-8" alt="edit" />
-                      Edit Product
-                    </li>
+                    <Link to="/EditProduct">
+                      <li className="p-2 hover:bg-gray-100 hover:rounded-lg cursor-pointer flex gap-3 font-medium items-center">
+                        <img src={EditImg} className="w-6" alt="edit" />
+                        Edit Product
+                      </li>
+                    </Link>
                     <p className="border w-full border-dashed border-[#a3a3a3]"></p>
-                    <li className="p-2 hover:bg-gray-100 hover:rounded-lg cursor-pointer font-medium flex gap-3 items-center">
-                      <img src={DeleteImg} className="w-8" alt="delete" />
+                    <li
+                      className="p-2 hover:bg-gray-100 hover:rounded-lg cursor-pointer font-medium flex gap-3 items-center"
+                      onClick={openDeleteModal}
+                    >
+                      <img src={DeleteImg} className="w-6" alt="delete" />
                       Remove
                     </li>
                   </ul>
@@ -160,21 +175,31 @@ const Products = () => {
                 </div>
                 <div className="grid md:grid-cols-6 grid-cols-2 py-3 gap-3">
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">Brand:</p>
+                    <p className="text-[14px] text-[#999999] font-[400]">
+                      Brand:
+                    </p>
                     <p className="text-[17px] font-[400]">{product.brand}</p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">Country of Origin:</p>
+                    <p className="text-[14px] text-[#999999] font-[400]">
+                      Country of Origin:
+                    </p>
                     <p className="text-[17px] font-[400]">{product.country}</p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">Company:</p>
+                    <p className="text-[14px] text-[#999999] font-[400]">
+                      Company:
+                    </p>
                     <p className="text-[17px] font-[400]">{product.company}</p>
                   </div>
                 </div>
                 <div className="border-b-2 border-dashed border-[#a3a3a3] pb-6">
-                  <p className="text-[14px] text-[#999999] font-[400]">Description:</p>
-                  <p className="text-[17px] font-[400]">{product.description}</p>
+                  <p className="text-[14px] text-[#999999] font-[400]">
+                    Description:
+                  </p>
+                  <p className="text-[17px] font-[400]">
+                    {product.description}
+                  </p>
                 </div>
               </div>
 
@@ -185,30 +210,53 @@ const Products = () => {
                 </div>
                 <div className="grid md:grid-cols-6 grid-cols-2 py-3 gap-3 border-b-2 border-[#a3a3a3] border-dashed">
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">Doctor:</p>
-                    <p className="text-[17px] font-[400]">{product.prices.doctor}</p>
+                    <p className="text-[14px] text-[#999999] font-[400]">
+                      Doctor:
+                    </p>
+                    <p className="text-[17px] font-[400]">
+                      {product.prices.doctor}
+                    </p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">Hospital/Clinic:</p>
-                    <p className="text-[17px] font-[400]">{product.prices.hospital}</p>
+                    <p className="text-[14px] text-[#999999] font-[400]">
+                      Hospital/Clinic:
+                    </p>
+                    <p className="text-[17px] font-[400]">
+                      {product.prices.hospital}
+                    </p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">Laboratory:</p>
-                    <p className="text-[17px] font-[400]">{product.prices.lab}</p>
+                    <p className="text-[14px] text-[#999999] font-[400]">
+                      Laboratory:
+                    </p>
+                    <p className="text-[17px] font-[400]">
+                      {product.prices.lab}
+                    </p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">Pharmacy:</p>
-                    <p className="text-[17px] font-[400]">{product.prices.pharmacy}</p>
+                    <p className="text-[14px] text-[#999999] font-[400]">
+                      Pharmacy:
+                    </p>
+                    <p className="text-[17px] font-[400]">
+                      {product.prices.pharmacy}
+                    </p>
                   </div>
                   <div>
-                    <p className="text-[14px] text-[#999999] font-[400]">Distributor:</p>
-                    <p className="text-[17px] font-[400]">{product.prices.distributor}</p>
+                    <p className="text-[14px] text-[#999999] font-[400]">
+                      Distributor:
+                    </p>
+                    <p className="text-[17px] font-[400]">
+                      {product.prices.distributor}
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-3 items-center flex-wrap md:justify-end justify-center mt-3">
                   <p className="font-[500] text-[#00427e] text-[28px]">
                     {product.sold}
-                    <span className="text-[19px] text-black font-[400]"> Sold</span>
+                    <span className="text-[19px] text-black font-[400]">
+                      {" "}
+                      Sold
+                    </span>
                   </p>
                   <Link
                     to="/ProductDetails"

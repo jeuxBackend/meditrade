@@ -83,6 +83,7 @@ const AdminProductManagement = () => {
       <DeleteCategoriesModal
         openDeleteModal={DeleteCategories}
         closeDeleteModal={closeDeleteModal}
+        
       />
 
       <style>{`::-webkit-scrollbar { display: none; }`}</style>

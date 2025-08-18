@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion"; // ✅ Import framer-motion
+import { motion } from "framer-motion";
 import Product1 from "../../Assets/Product1.png";
 import Product2 from "../../Assets/Product2.png";
 import Product3 from "../../Assets/Product3.png";
@@ -37,7 +37,6 @@ const ProductDetails = () => {
     <div className="bg-[#fafafa] lg:ml-[295px]">
       <style>{`::-webkit-scrollbar { display: none; }`}</style>
 
-      {/* ✅ Animation wrapper */}
       <motion.div
         className="md:p-6 p-4"
         variants={container}
