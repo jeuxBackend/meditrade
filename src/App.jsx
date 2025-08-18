@@ -4,7 +4,6 @@ import Layout from "./Website/WebsiteLayout/Layout";
 import Home from "./Website/Pages/Home/Home";
 import MyOrder from "./Website/Pages/MyOrder/MyOrder";
 import WebChat from "./Website/Pages/WebChat/WebChat";
-// import MyOrderProductDetails from "./Website/Pages/";
 import Login from "./Auth/AdminAuth/Login/Login";
 import AdminLayout from "./Admin/AdminLayOut/AdminLayout";
 import AdminDashBoard from "./Admin/pages/AdminDashBoard/AdminDashBoard";
@@ -38,6 +37,7 @@ import QuoteRequests from "./Website/Pages/QuoteRequests/QuoteRequests";
 import ProductDetails from "./Admin/pages/AdminProductManagement/Products/ProductDetails/ProductDetails";
 import AddProduct from "./Admin/pages/AdminProductManagement/Products/AddProduct/AddProduct";
 import EditProduct from "./Admin/pages/AdminProductManagement/Products/EditProduct/EditProduct";
+import OrderDetails from "./Website/Pages/MyOrder/components/CompletedOrders/components/OrderDetails/OrderDetails";
 
 function App() {
   return (
@@ -52,9 +52,9 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/Home" element={<Home />} />
           <Route path="/SeeMoreProduct" element={<Home />} />
-          {/* <Route path="/HomeProductInformation" element={<HomeProductInformation />} /> */}
+          <Route path="/MyProductDetails" element={<MyProductDetails />} />
           <Route path="/MyOrder" element={<MyOrder />} />
-          {/* <Route path="/MyOrderProductDetails" element={<MyOrderProductDetails />} /> */}
+          <Route path="/MyProductDetails" element={<MyProductDetails />} />
           <Route path="/WebChat" element={<WebChat />} />
           <Route path="/ProfileSetting" element={<ProfileSetting />} />
           <Route path="/FAQ" element={<FAQ />} />
@@ -62,6 +62,14 @@ function App() {
           <Route path="/TermsandConditions" element={<TermsandConditions />} />
           <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
           <Route path="/QuoteRequests" element={<QuoteRequests />} />
+          <Route path="/OrderDetails" element={<OrderDetails />} />
+           <Route path="/MyCart" element={<MyCart />} />
+          <Route
+            path="/DeliveryInformation"
+            element={<DeliveryInformation />}
+          />
+          <Route path="/PaymentMethod" element={<PaymentMethod />} />
+          <Route path="/SelectCard" element={<SelectCard />} />
         </Route>
 
         {/* Admin side  */}
@@ -71,16 +79,9 @@ function App() {
           <Route path="/TopSellingProducts" element={<TopSellingProducts />} />
           <Route path="/RecentOrder" element={<RecentOrders />} />
           <Route path="/AdminUsers" element={<AdminUsers />} />
-          <Route path="/MyProductDetails" element={<MyProductDetails />} />
           <Route path="/UserDetails" element={<UserDetails />} />
           <Route path="/EditUser" element={<EditUser />} />
-          <Route path="/MyCart" element={<MyCart />} />
-          <Route
-            path="/DeliveryInformation"
-            element={<DeliveryInformation />}
-          />
-          <Route path="/PaymentMethod" element={<PaymentMethod />} />
-          <Route path="/SelectCard" element={<SelectCard />} />
+         
           <Route
             path="/AdminProductManagement"
             element={<AdminProductManagement />}

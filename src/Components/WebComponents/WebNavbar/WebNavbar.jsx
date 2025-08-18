@@ -26,7 +26,7 @@ const WebNavbar = () => {
 
   const navItems = [
     { label: "Home", path: "/Home" },
-    { label: "My Orders", path: "/MyOrder" },
+    { label: "My Orders", path: "/MyOrder"||"/OrderDetails" },
     { label: "Chat", path: "/WebChat" },
     { label: "Quote Requests", path: "/QuoteRequests" },
   ];
