@@ -7,9 +7,12 @@ import AddProductImg3 from "../../Assets/CategoriesImg 9.png";
 import { IoIosArrowDown } from "react-icons/io";
 import closeImg from "../../Assets/CloseImg.png";
 import PdfImg from "../../Assets/PdfImg.png";
+import { IoIosArrowForward } from "react-icons/io";
 import { motion } from "framer-motion";
+import AddPriceDoctorModal from "../Modal/AddPriceDoctorModal";
 
 const AddProduct = () => {
+  const [AddDoctorPrice, setAddDoctorPrice] = useState(false);
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState("");
   const brands = ["Pfizer", "Novartis", "Johnson & Johnson", "Roche", "Sanofi"];
@@ -20,7 +23,9 @@ const AddProduct = () => {
     AddProductImg2,
     AddProductImg3,
   ]);
-
+ // Add
+  const openModal = () => setAddDoctorPrice(true);
+  const closeModal = () => setAddDoctorPrice(false);
   // Handle image upload
   const handleImageUpload = (e) => {
     const files = Array.from(e.target.files);
@@ -49,6 +54,7 @@ const AddProduct = () => {
 
   return (
     <div className="bg-[#fafafa] lg:ml-[295px]">
+       <AddPriceDoctorModal openModal={AddDoctorPrice} closeModal={closeModal} />
       <style>{`::-webkit-scrollbar { display: none; }`}</style>
       <div className="md:p-6 p-4">
         {/* image section */}
@@ -256,28 +262,31 @@ const AddProduct = () => {
           </motion.p>
 
           <div className="grid md:grid-cols-2 grid-cols-1 gap-3">
-            {[
-              "Doctor",
-              "Hospital/Clinic",
-              "Laboratory",
-              "Pharmacy",
-              "Distributor",
-            ].map((label, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="w-full"
-              >
-                <label className="font-medium text-[16px]">{label}</label>
-                <input
-                  type="text"
-                  className="p-3 w-full mt-2 outline-none border border-[#f0f0f1] bg-white rounded-lg"
-                  placeholder="Enter"
-                />
-              </motion.div>
-            ))}
+            <div >
+              <p className="font-medium text-[16px]">Doctor</p>
+              <div className="border border-[#f0f0f1] mt-2 bg-white items-center flex justify-between rounded-lg p-3 w-full cursor-pointer"   onClick={openModal}>
+                Enter
+                <IoIosArrowForward />
+              </div>
+            </div>
+            {["Hospital/Clinic", "Laboratory", "Pharmacy", "Distributor"].map(
+              (label, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="w-full"
+                >
+                  <label className="font-medium text-[16px]">{label}</label>
+                  <input
+                    type="text"
+                    className="p-3 w-full mt-2 outline-none border border-[#f0f0f1] bg-white rounded-lg"
+                    placeholder="Enter"
+                  />
+                </motion.div>
+              )
+            )}
           </div>
         </form>
 
