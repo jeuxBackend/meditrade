@@ -23,7 +23,7 @@ const AddProduct = () => {
     AddProductImg2,
     AddProductImg3,
   ]);
- // Add
+  // Add
   const openModal = () => setAddDoctorPrice(true);
   const closeModal = () => setAddDoctorPrice(false);
   // Handle image upload
@@ -54,7 +54,7 @@ const AddProduct = () => {
 
   return (
     <div className="bg-[#fafafa] lg:ml-[295px]">
-       <AddPriceDoctorModal openModal={AddDoctorPrice} closeModal={closeModal} />
+      <AddPriceDoctorModal openModal={AddDoctorPrice} closeModal={closeModal} />
       <style>{`::-webkit-scrollbar { display: none; }`}</style>
       <div className="md:p-6 p-4">
         {/* image section */}
@@ -262,9 +262,12 @@ const AddProduct = () => {
           </motion.p>
 
           <div className="grid md:grid-cols-2 grid-cols-1 gap-3">
-            <div >
+            <div>
               <p className="font-medium text-[16px]">Doctor</p>
-              <div className="border border-[#f0f0f1] mt-2 bg-white items-center flex justify-between rounded-lg p-3 w-full cursor-pointer"   onClick={openModal}>
+              <div
+                className="border border-[#f0f0f1] mt-2 bg-white items-center flex justify-between rounded-lg p-3 w-full cursor-pointer"
+                onClick={openModal}
+              >
                 Enter
                 <IoIosArrowForward />
               </div>

@@ -5,11 +5,7 @@ import { motion } from "framer-motion";
 import arrowicon from "../../Assets/BackArrowImg.png";
 
 const AddPriceDoctorModal = ({ openModal, closeModal }) => {
-
-
   if (!openModal) return null;
-
- 
 
   return (
     <motion.div
@@ -39,13 +35,12 @@ const AddPriceDoctorModal = ({ openModal, closeModal }) => {
                 />
               </button>
               <p className="absolute top-6 font-[500] text-[20px]">
-              Price for Doctor
+                Price for Doctor
               </p>
             </div>
           </div>
 
           {/* Image */}
-         
 
           {/* Form */}
           <div className="px-5 mt-6">
