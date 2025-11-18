@@ -12,11 +12,8 @@ yarn-error.log*
 pnpm-debug.log*
 
 # local env files
-.env
-.env.local
 
 # IDEs and editors
-.vscode
 .idea
 
 # macOS
@@ -24,3 +21,7 @@ pnpm-debug.log*
 
 # system files
 Thumbs.db
+config.bat
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
